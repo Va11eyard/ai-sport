@@ -22,9 +22,9 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
         run: |
-          set -o pipefail
           cp -r ../src ./src
-          npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} | tee /tmp/vercel-api.txt
+          npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} | tee /tmp/vercel-api.txt || true
+          if ! grep -q 'Ready' /tmp/vercel-api.txt; then exit 1; fi
           URL=$(grep -E 'Aliased' /tmp/vercel-api.txt | grep -Eo 'https://[a-zA-Z0-9._-]+\.vercel\.app' | tail -1)
           if [ -z "$URL" ]; then
             URL=$(grep -Eo 'https://[a-zA-Z0-9._-]+\.vercel\.app' /tmp/vercel-api.txt | tail -1)
