@@ -135,11 +135,15 @@ app.get("/athletes/:id/injury-factors", async (c) => {
   return c.json(factorsFor(athlete, snapRow ? toSnapshot(snapRow) : null, hist));
 });
 
-export default app;
+const handler = new Hono();
+handler.route("/", app);
+handler.route("/api", app);
+
+export default handler;
 
 if (!process.env.VERCEL) {
   const port = Number(process.env.PORT ?? 8080);
-  serve({ fetch: app.fetch, port }, () => {
+  serve({ fetch: handler.fetch, port }, () => {
     console.log(`api listening on ${port}`);
   });
 }

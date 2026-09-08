@@ -22,7 +22,8 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
         run: |
-          URL=$(npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }})
+          npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} | tee /tmp/vercel-api.txt
+          URL=$(grep 'Production' /tmp/vercel-api.txt | grep -Eo 'https://[^[:space:]]+' | tail -1)
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
       - name: Migrate and seed
