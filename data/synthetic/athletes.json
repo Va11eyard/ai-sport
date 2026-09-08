@@ -1,0 +1,202 @@
+[
+  {
+    "id": "wp-01",
+    "lastName": "Орлов",
+    "firstName": "Илья",
+    "name": "Орлов Илья",
+    "position": "вратарь",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-02",
+    "lastName": "Соколов",
+    "firstName": "Артём",
+    "name": "Соколов Артём",
+    "position": "вратарь",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-03",
+    "lastName": "Морозов",
+    "firstName": "Кирилл",
+    "name": "Морозов Кирилл",
+    "position": "центральный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-04",
+    "lastName": "Волков",
+    "firstName": "Никита",
+    "name": "Волков Никита",
+    "position": "центральный",
+    "previousInjury": true
+  },
+  {
+    "id": "wp-05",
+    "lastName": "Лебедев",
+    "firstName": "Павел",
+    "name": "Лебедев Павел",
+    "position": "центральный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-06",
+    "lastName": "Козлов",
+    "firstName": "Даниил",
+    "name": "Козлов Даниил",
+    "position": "центральный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-07",
+    "lastName": "Новиков",
+    "firstName": "Максим",
+    "name": "Новиков Максим",
+    "position": "центральный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-08",
+    "lastName": "Морозов",
+    "firstName": "Егор",
+    "name": "Морозов Егор",
+    "position": "подвижный",
+    "previousInjury": true
+  },
+  {
+    "id": "wp-09",
+    "lastName": "Петров",
+    "firstName": "Андрей",
+    "name": "Петров Андрей",
+    "position": "подвижный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-10",
+    "lastName": "Смирнов",
+    "firstName": "Иван",
+    "name": "Смирнов Иван",
+    "position": "подвижный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-11",
+    "lastName": "Кузнецов",
+    "firstName": "Роман",
+    "name": "Кузнецов Роман",
+    "position": "подвижный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-12",
+    "lastName": "Попов",
+    "firstName": "Алексей",
+    "name": "Попов Алексей",
+    "position": "подвижный",
+    "previousInjury": true
+  },
+  {
+    "id": "wp-13",
+    "lastName": "Васильев",
+    "firstName": "Сергей",
+    "name": "Васильев Сергей",
+    "position": "подвижный",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-14",
+    "lastName": "Павлов",
+    "firstName": "Дмитрий",
+    "name": "Павлов Дмитрий",
+    "position": "крайний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-15",
+    "lastName": "Семёнов",
+    "firstName": "Глеб",
+    "name": "Семёнов Глеб",
+    "position": "крайний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-16",
+    "lastName": "Голубев",
+    "firstName": "Тимур",
+    "name": "Голубев Тимур",
+    "position": "крайний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-17",
+    "lastName": "Виноградов",
+    "firstName": "Олег",
+    "name": "Виноградов Олег",
+    "position": "крайний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-18",
+    "lastName": "Богданов",
+    "firstName": "Юрий",
+    "name": "Богданов Юрий",
+    "position": "крайний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-19",
+    "lastName": "Воробьёв",
+    "firstName": "Антон",
+    "name": "Воробьёв Антон",
+    "position": "крайний",
+    "previousInjury": true
+  },
+  {
+    "id": "wp-20",
+    "lastName": "Фёдоров",
+    "firstName": "Станислав",
+    "name": "Фёдоров Станислав",
+    "position": "полусредний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-21",
+    "lastName": "Михайлов",
+    "firstName": "Владислав",
+    "name": "Михайлов Владислав",
+    "position": "полусредний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-22",
+    "lastName": "Алексеев",
+    "firstName": "Константин",
+    "name": "Алексеев Константин",
+    "position": "полусредний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-23",
+    "lastName": "Лебедев",
+    "firstName": "Мирон",
+    "name": "Лебедев Мирон",
+    "position": "полусредний",
+    "previousInjury": true
+  },
+  {
+    "id": "wp-24",
+    "lastName": "Егоров",
+    "firstName": "Лев",
+    "name": "Егоров Лев",
+    "position": "полусредний",
+    "previousInjury": false
+  },
+  {
+    "id": "wp-25",
+    "lastName": "Степанов",
+    "firstName": "Марк",
+    "name": "Степанов Марк",
+    "position": "полусредний",
+    "previousInjury": false
+  }
+]

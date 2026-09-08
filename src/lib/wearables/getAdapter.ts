@@ -1,0 +1,1 @@
+export { getWearableAdapter as getAdapter } from "./index";

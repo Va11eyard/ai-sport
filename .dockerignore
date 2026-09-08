@@ -1,0 +1,11 @@
+**/node_modules
+.next
+.git
+ml
+coverage
+data/synthetic
+**/.venv
+*.md
+.env
+api/.env
+.git

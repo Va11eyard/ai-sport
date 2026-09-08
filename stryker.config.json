@@ -1,0 +1,12 @@
+{
+  "testRunner": "vitest",
+  "disableTypeChecks": true,
+  "mutate": [
+    "src/lib/terra/hmac.ts",
+    "src/lib/terra/map.ts",
+    "src/lib/analysis/parse.ts"
+  ],
+  "packageManager": "npm",
+  "thresholds": { "high": 80, "low": 60, "break": 60 },
+  "reporters": ["clear-text", "progress"]
+}

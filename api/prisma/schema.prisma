@@ -1,0 +1,156 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Athlete {
+  id              String            @id
+  lastName        String
+  firstName       String
+  position        String
+  previousInjury  Boolean
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime         @updatedAt
+  snapshots       DailySnapshot[]
+  labPanels       LabPanel[]
+  psychCheckins   PsychCheckin[]
+  nutritionDays   NutritionDay[]
+  trainings       TrainingSession[]
+  analyses        AiAnalysis[]
+  terraUserId     String?           @unique
+  terraProvider   String?
+
+  @@index([position])
+}
+
+model DailySnapshot {
+  id              Int      @id @default(autoincrement())
+  athleteId       String
+  date            String
+  sleepHours      Float
+  restingHr       Float
+  hrvRmssd        Float
+  workload        Float
+  recovery        Int
+  readiness       Int
+  injuryRisk      Int
+  missedSession   Boolean
+  respRate        Float?
+  temperature     Float?
+  weightKg        Float?
+  bodyFatPct      Float?
+  muscleMassKg    Float?
+  sleepEfficiency Float?
+  remHours        Float?
+  deepHours       Float?
+  awakenings      Int?
+  sleepLatencyMin Float?
+  athlete         Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+  @@index([date])
+}
+
+model LabPanel {
+  id            Int      @id @default(autoincrement())
+  athleteId     String
+  date          String
+  hemoglobin    Float?
+  vitaminD      Float?
+  ferritin      Float?
+  iron          Float?
+  testosterone  Float?
+  cortisol      Float?
+  igf1          Float?
+  ck            Float?
+  crp           Float?
+  lactate       Float?
+  vo2max        Float?
+  athlete       Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+}
+
+model PsychCheckin {
+  id          Int      @id @default(autoincrement())
+  athleteId   String
+  date        String
+  stress      Int
+  motivation  Int
+  anxiety     Int
+  burnout     Int
+  mood        Int
+  cognitive   Int
+  athlete     Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+}
+
+model NutritionDay {
+  id         Int      @id @default(autoincrement())
+  athleteId  String
+  date       String
+  kcal       Float
+  proteinG   Float
+  carbsG     Float
+  fatG       Float
+  waterL     Float
+  athlete    Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+}
+
+model TrainingSession {
+  id             Int      @id @default(autoincrement())
+  athleteId      String
+  date           String
+  distanceM      Float?
+  speedAvg       Float?
+  accelerations  Int?
+  shots          Int?
+  throwPower     Float?
+  powerWatts     Float?
+  athlete        Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+}
+
+model Meta {
+  id      Int    @id @default(1)
+  asOf    String
+  seedKey String
+}
+
+model AiAnalysis {
+  id        Int      @id @default(autoincrement())
+  athleteId String
+  date      String
+  bullets   String
+  model     String
+  athlete   Athlete  @relation(fields: [athleteId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([athleteId, date])
+  @@index([athleteId])
+}

@@ -1,0 +1,60 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Deploy API
+        id: api
+        working-directory: api
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
+        run: |
+          URL=$(npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Migrate and seed
+        working-directory: api
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_API }}
+        run: |
+          npx vercel@latest env pull .env --environment production --yes --token=${{ secrets.VERCEL_TOKEN }}
+          if ! grep -q '^DATABASE_URL=' .env; then
+            echo "DATABASE_URL missing; skip migrate until Neon/Prisma Postgres is connected"
+            exit 0
+          fi
+          set -a
+          # shellcheck disable=SC1091
+          . ./.env
+          set +a
+          npx prisma migrate deploy
+          npx tsx seed.ts
+
+      - name: Point web at API
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          API_URL: ${{ steps.api.outputs.url }}
+        run: |
+          npx vercel@latest env add CORS_ORIGIN production --value "*" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_API }}"
+          npx vercel@latest env add API_URL production,preview --value "$API_URL" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_WEB }}"
+          npx vercel@latest env add NEXT_PUBLIC_API_URL production,preview --value "$API_URL" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_WEB }}"
+          npx vercel@latest env add WEARABLE_SOURCE production,preview --value http --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_WEB }}"
+
+      - name: Deploy web
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_WEB }}
+        run: npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
