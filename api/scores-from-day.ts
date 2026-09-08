@@ -1,8 +1,8 @@
-import { injuryRiskInputs, injuryRiskScore } from "../src/lib/scores/injury-risk";
-import { mean, median } from "../src/lib/scores/math";
-import { readinessScore } from "../src/lib/scores/readiness";
-import { recoveryScore } from "../src/lib/scores/recovery";
-import type { DailyPhysio } from "../src/lib/wearables/types";
+import { injuryRiskInputs, injuryRiskScore } from "./src/lib/scores/injury-risk";
+import { mean, median } from "./src/lib/scores/math";
+import { readinessScore } from "./src/lib/scores/readiness";
+import { recoveryScore } from "./src/lib/scores/recovery";
+import type { DailyPhysio } from "./src/lib/wearables/types";
 
 export function scoresFromDay(args: {
   sleepHours: number;

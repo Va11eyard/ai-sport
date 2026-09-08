@@ -1,8 +1,8 @@
 import type { Hono } from "hono";
 import { prisma } from "./db";
 import { scoresFromDay } from "./scores-from-day";
-import { terraSourceReady, verifyTerraHmac } from "../src/lib/terra/hmac";
-import { mapTerraDay, terraDayFromWebhook } from "../src/lib/terra/map";
+import { terraSourceReady, verifyTerraHmac } from "./src/lib/terra/hmac";
+import { mapTerraDay, terraDayFromWebhook } from "./src/lib/terra/map";
 
 async function bumpAsOf(date: string) {
   const meta = await prisma.meta.findUnique({ where: { id: 1 } });

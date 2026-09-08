@@ -6,6 +6,7 @@ RUN cd api && npm ci
 COPY src ./src
 COPY api ./api
 WORKDIR /app/api
+RUN cp -r /app/src ./src
 RUN npx prisma generate
 EXPOSE 8080
 CMD ["sh", "-c", "npx prisma migrate deploy && npx tsx seed.ts && npx tsx server.ts"]

@@ -1,4 +1,4 @@
-import type { Athlete, DailyPhysio } from "../src/lib/wearables/types";
+import type { Athlete, DailyPhysio } from "./src/lib/wearables/types";
 import type { Athlete as AthleteRow, DailySnapshot } from "@prisma/client";
 
 export function toAthlete(row: AthleteRow): Athlete {

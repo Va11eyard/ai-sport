@@ -5,7 +5,7 @@ import {
   bulletsFromModelText,
   buildAnalysisPrompt,
   type DayAnalysis,
-} from "../src/lib/analysis/parse";
+} from "./src/lib/analysis/parse";
 
 const MODEL = "claude-sonnet-4-6";
 

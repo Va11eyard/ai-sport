@@ -1,4 +1,4 @@
-import { generateSynthetic } from "../src/lib/synthetic/generate";
+import { generateSynthetic } from "./src/lib/synthetic/generate";
 import { prisma } from "./db";
 
 async function main() {

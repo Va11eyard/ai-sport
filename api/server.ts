@@ -6,14 +6,14 @@ import { toAthlete, toSnapshot } from "./map";
 import { registerEntry } from "./entry";
 import { registerTerraWebhook } from "./terra-webhook";
 import { registerAnalysis } from "./analysis";
-import { burnoutIndex } from "../src/lib/scores/mental";
+import { burnoutIndex } from "./src/lib/scores/mental";
 import {
   addDays,
   computeTeamSummary,
   factorsFor,
   recommendationsFor,
   seriesForAthlete,
-} from "../src/lib/wearables/queries";
+} from "./src/lib/wearables/queries";
 
 const app = new Hono();
 const origin = process.env.CORS_ORIGIN ?? "http://localhost:3400";
