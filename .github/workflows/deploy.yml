@@ -54,6 +54,7 @@ jobs:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
           API_URL: ${{ steps.api.outputs.url }}
         run: |
+          rm -rf api/src
           npx vercel@latest env add CORS_ORIGIN production --value "*" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_API }}"
           npx vercel@latest env add API_URL production,preview --value "$API_URL" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_WEB }}"
           npx vercel@latest env add NEXT_PUBLIC_API_URL production,preview --value "$API_URL" --yes --force --no-sensitive --token="$TOKEN" --scope mynzhasardimash-gmailcoms-projects --project "${{ secrets.VERCEL_PROJECT_ID_WEB }}"
