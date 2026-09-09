@@ -8,6 +8,13 @@
 @import "@astryxdesign/core/tailwind-theme.css";
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@source "../**/*.{ts,tsx}";
+@source "../../src/**/*.{ts,tsx}";
+@source not "../../api";
+@source not "../../ml";
+@source not "../../data";
+@source not "../../docs";
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-num: var(--font-jetbrains);
