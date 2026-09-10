@@ -7,7 +7,7 @@ import { neutralTheme } from "@astryxdesign/theme-neutral/built";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <Theme theme={neutralTheme} mode="light">
+    <Theme theme={neutralTheme} mode="dark">
       <LinkProvider component={Link}>{children}</LinkProvider>
     </Theme>
   );

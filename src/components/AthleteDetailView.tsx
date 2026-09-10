@@ -66,7 +66,7 @@ export function AthleteDetailView({
             variant="ghost"
             size="lg"
             className="min-h-11"
-            label="Состав"
+            label="К составу на сегодня"
             icon={<Icon icon={ArrowLeftIcon} size="sm" />}
           />
           <HStack hAlign="start" vAlign="center" gap={3} wrap="wrap">
@@ -90,20 +90,20 @@ export function AthleteDetailView({
             <HStack hAlign="between" vAlign="end" gap={4} wrap="wrap">
               <ArcGauge
                 value={today?.readiness ?? null}
-                size={96}
-                label="readiness"
+                size={120}
+                label="готовность"
                 tone={tone}
               />
               <ArcGauge
                 value={today?.recovery ?? null}
                 size={72}
-                label="recovery"
+                label="восстановление"
                 tone="recover"
               />
               <ArcGauge
                 value={today?.injuryRisk ?? null}
                 size={72}
-                label="injury risk"
+                label="риск"
                 tone="risk"
               />
             </HStack>
@@ -145,12 +145,14 @@ export function AthleteDetailView({
         </SectionCard>
       </VStack>
 
+      <div className="relative z-20">
       <InjuryPanel
         open={panel}
         factors={factors}
         injuryRisk={today?.injuryRisk ?? null}
         onClose={() => setPanel(false)}
       />
+      </div>
     </div>
   );
 }

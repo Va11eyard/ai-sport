@@ -3,6 +3,10 @@ import { injuryRiskInputs } from "@/src/lib/scores/injury-risk";
 import { mean, median } from "@/src/lib/scores/math";
 import { todayRecommendations as buildRecs } from "@/src/lib/scores/recommendations";
 import { factorFromSnapshot } from "@/src/lib/synthetic/generate";
+import {
+  availabilityForToday,
+  countAvailability,
+} from "@/src/lib/athletes/availability";
 import type {
   Athlete,
   DailyPhysio,
@@ -50,11 +54,19 @@ export function computeTeamSummary(
   const missedSessionsLast7d = snapshots.filter(
     (s) => s.date >= from && s.date <= today && s.missedSession,
   ).length;
+  const statuses = athletes.map((a) =>
+    availabilityForToday(byAthleteToday.get(a.id) ?? null),
+  );
+  const { availableCount, restrictedCount, outCount } =
+    countAvailability(statuses);
   return {
     athleteCount: athletes.length,
     meanReadiness,
     flaggedCount,
     missedSessionsLast7d,
+    availableCount,
+    restrictedCount,
+    outCount,
   };
 }
 

@@ -50,6 +50,9 @@ export type TeamSummary = {
   meanReadiness: number | null;
   flaggedCount: number;
   missedSessionsLast7d: number;
+  availableCount: number;
+  restrictedCount: number;
+  outCount: number;
 };
 
 export type InjuryFactors = {

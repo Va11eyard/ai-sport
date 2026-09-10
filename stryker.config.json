@@ -1,12 +1,14 @@
 {
   "testRunner": "vitest",
   "disableTypeChecks": true,
+  "tsconfigFile": "tsconfig.stryker-absent.json",
   "mutate": [
     "src/lib/terra/hmac.ts",
     "src/lib/terra/map.ts",
     "src/lib/analysis/parse.ts"
   ],
   "packageManager": "npm",
+  "ignorePatterns": [".stryker-tmp"],
   "thresholds": { "high": 80, "low": 60, "break": 60 },
   "reporters": ["clear-text", "progress"]
 }

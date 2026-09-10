@@ -38,19 +38,19 @@ function ChromeNav({ selected }: { selected: boolean }) {
       heading={
         <TopNavHeading
           heading="Сборная"
-          superheading="водное поло"
+          superheading="сегодня"
           headingHref="/"
         />
       }
       startContent={
-        <TopNavItem label="Состав" href="/" isSelected={selected} />
+        <TopNavItem label="Сегодня" href="/" isSelected={selected} />
       }
       endContent={
         <Button
           href="/athletes/new"
-          label="Добавить"
+          label="Новый атлет"
           size="lg"
-          variant="primary"
+          variant="ghost"
           className="min-h-11"
           icon={<Icon icon={PlusIcon} size="sm" />}
         />

@@ -88,10 +88,10 @@ function quantile(xs: number[], q: number): number {
 }
 
 function cellColor(load: number | null, q75: number): string {
-  if (load == null) return "oklch(0.93 0.015 155)";
+  if (load == null) return "rgb(255 255 255 / 0.06)";
   const t = Math.min(1, load / 21);
   if (load >= q75) {
-    return `oklch(${0.78 - t * 0.16} 0.19 48)`;
+    return `oklch(${0.55 + t * 0.12} 0.16 70)`;
   }
-  return `oklch(${0.82 - t * 0.22} ${0.14 + t * 0.06} 155)`;
+  return `oklch(${0.35 + t * 0.28} ${0.1 + t * 0.08} 155)`;
 }

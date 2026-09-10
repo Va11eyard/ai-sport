@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ru"
-      data-theme="light"
+      data-theme="dark"
       className={`${geistSans.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full">

@@ -33,7 +33,7 @@ export function PhysioChart({
       <div className="h-52 w-full sm:h-80">
         <ResponsiveContainer>
           <LineChart data={data} margin={{ top: 8, right: 4, left: 0, bottom: 0 }}>
-          <CartesianGrid stroke="rgba(15,18,22,0.08)" vertical={false} />
+          <CartesianGrid stroke="rgb(255 255 255 / 0.08)" vertical={false} />
           <ReferenceArea
             yAxisId="hrv"
             y1={ZONES.hrv.min}
@@ -43,14 +43,14 @@ export function PhysioChart({
           />
           <XAxis
             dataKey="label"
-            tick={{ fill: "rgba(15,18,22,0.45)", fontSize: 10 }}
+            tick={{ fill: "rgb(255 255 255 / 0.45)", fontSize: 10 }}
             interval="preserveStartEnd"
             axisLine={false}
             tickLine={false}
           />
           <YAxis
             yAxisId="hrv"
-            tick={{ fill: "rgba(15,18,22,0.45)", fontSize: 10 }}
+            tick={{ fill: "rgb(255 255 255 / 0.45)", fontSize: 10 }}
             axisLine={false}
             tickLine={false}
             width={32}
@@ -58,7 +58,7 @@ export function PhysioChart({
           <YAxis
             yAxisId="rhr"
             orientation="right"
-            tick={{ fill: "rgba(15,18,22,0.45)", fontSize: 10 }}
+            tick={{ fill: "rgb(255 255 255 / 0.45)", fontSize: 10 }}
             axisLine={false}
             tickLine={false}
             width={28}
@@ -66,9 +66,9 @@ export function PhysioChart({
           <YAxis yAxisId="sleep" hide domain={[4, 10]} />
           <Tooltip
             contentStyle={{
-              background: "#fff",
-              border: "1px solid rgba(15,18,22,0.12)",
-              color: "#111",
+              background: "#121417",
+              border: "1px solid rgb(255 255 255 / 0.08)",
+              color: "rgb(255 255 255 / 0.92)",
               fontSize: 12,
             }}
             formatter={(v, name) => [v ?? "нет данных", name]}
@@ -88,7 +88,7 @@ export function PhysioChart({
             type="monotone"
             dataKey="rhr"
             name="пульс покоя"
-            stroke="oklch(0.42 0.02 250)"
+            stroke="oklch(0.72 0.04 250)"
             dot={false}
             connectNulls={false}
             strokeWidth={1.2}

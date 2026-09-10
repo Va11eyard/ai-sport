@@ -4,6 +4,12 @@ import path from "node:path";
 export default defineConfig({
   test: {
     environment: "node",
+    exclude: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.git/**",
+      "**/.stryker-tmp/**",
+    ],
     coverage: {
       provider: "v8",
       include: [
@@ -11,6 +17,7 @@ export default defineConfig({
         "src/lib/synthetic/**/*.ts",
         "src/lib/wearables/**/*.ts",
         "src/lib/athletes/roster.ts",
+        "src/lib/athletes/availability.ts",
         "src/lib/terra/**/*.ts",
         "src/lib/analysis/**/*.ts",
       ],
@@ -25,6 +32,6 @@ export default defineConfig({
     },
   },
   resolve: {
-    alias: { "@": path.resolve(__dirname, ".") },
+    alias: { "@": path.resolve(process.cwd()) },
   },
 });

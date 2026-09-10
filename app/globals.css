@@ -1,39 +1,57 @@
 @layer reset, theme, base, astryx-base, astryx-theme, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/theme.css" layer(theme) source(none);
+@import "tailwindcss/preflight.css" layer(base) source(none);
 @import "@astryxdesign/core/reset.css";
 @import "@astryxdesign/core/astryx.css";
 @import "@astryxdesign/theme-neutral/theme.css";
 @import "@astryxdesign/core/tailwind-theme.css";
-@import "tailwindcss/utilities.css" layer(utilities);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
 
-@source "../**/*.{ts,tsx}";
-@source "../../src/**/*.{ts,tsx}";
-@source not "../../api";
-@source not "../../ml";
-@source not "../../data";
-@source not "../../docs";
+@source "./**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-num: var(--font-jetbrains);
-  --color-ready: oklch(0.62 0.19 155);
-  --color-risk: oklch(0.65 0.19 45);
+  --color-canvas: #0a0b0d;
+  --color-ready: #4ade9e;
+  --color-risk: #f2a93b;
   --color-recovery: oklch(0.62 0.14 230);
+  --color-muted: rgb(255 255 255 / 0.08);
+  --color-line: rgb(255 255 255 / 0.08);
+}
+
+html {
+  color-scheme: dark;
 }
 
 html,
 body {
   min-height: 100%;
+  background: var(--color-canvas);
+  color: rgb(255 255 255 / 0.92);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 body {
+  position: relative;
   padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 .page-shell {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
@@ -68,4 +86,255 @@ body {
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.04em;
+}
+
+.today-brief {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.today-brief__kicker {
+  margin: 0;
+  color: rgb(255 255 255 / 0.45);
+  font-size: 0.8rem;
+}
+
+.today-brief__title {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.today-brief__lead {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  color: rgb(255 255 255 / 0.55);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.today-brief__decisions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .today-brief__decisions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.today-brief__n {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.today-brief__n--water {
+  color: var(--color-ready);
+}
+
+.today-brief__n--restricted,
+.today-brief__n--out {
+  color: var(--color-risk);
+}
+
+.today-brief__label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.today-brief__hint {
+  display: block;
+  margin-top: 0.2rem;
+  color: rgb(255 255 255 / 0.4);
+  font-size: 0.75rem;
+}
+
+.today-brief__meta {
+  margin: 1.25rem 0 0;
+  color: rgb(255 255 255 / 0.45);
+  font-size: 0.8rem;
+}
+
+.today-brief__meta strong {
+  color: rgb(255 255 255 / 0.88);
+  font-weight: 500;
+}
+
+.today-brief__dot {
+  margin-inline: 0.55rem;
+}
+
+.roster-caption {
+  margin: 0 0 0.5rem;
+  color: rgb(255 255 255 / 0.4);
+  font-size: 0.75rem;
+}
+
+.team-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .team-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+  }
+}
+
+.roster-block__head {
+  margin-bottom: 0.85rem;
+}
+
+.roster-block__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.65rem;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.roster-block__step {
+  color: rgb(255 255 255 / 0.35);
+  font-size: 0.8rem;
+}
+
+.roster-block__count {
+  color: rgb(255 255 255 / 0.4);
+  font-size: 0.9rem;
+}
+
+.roster-block__hint {
+  margin: 0.35rem 0 0;
+  max-width: 36rem;
+  color: rgb(255 255 255 / 0.45);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.roster-empty {
+  margin: 0;
+  color: rgb(255 255 255 / 0.4);
+  font-size: 0.85rem;
+}
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .roster-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .roster-grid--attention > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .roster-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .roster-grid--attention > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .roster-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.athlete-tile {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  min-height: 148px;
+  background: rgb(255 255 255 / 0.03);
+  border: 1px solid var(--color-line);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: none;
+  transition: box-shadow 180ms ease;
+}
+
+.athlete-tile--featured {
+  min-height: 216px;
+}
+
+.athlete-tile:hover {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+}
+
+.athlete-tile__rail {
+  width: 3px;
+  flex-shrink: 0;
+  background: rgb(255 255 255 / 0.18);
+}
+
+.athlete-tile__rail--water {
+  background: var(--color-ready);
+}
+
+.athlete-tile__rail--restricted {
+  background: var(--color-risk);
+}
+
+.athlete-tile__rail--out {
+  background: rgb(242 169 59 / 0.45);
+}
+
+.athlete-tile__rail--missing {
+  background: rgb(255 255 255 / 0.18);
+}
+
+.athlete-tile__body {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.85rem 0.9rem 0.9rem;
+}
+
+.athlete-tile__name {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+
+.athlete-tile__today {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.athlete-tile__open {
+  margin: 0.15rem 0 0;
+  color: rgb(255 255 255 / 0.35);
+  font-size: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .athlete-tile {
+    transition: none;
+  }
 }

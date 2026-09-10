@@ -23,6 +23,9 @@ export class TerraWearableAdapter implements WearableAdapter {
       meanReadiness: null,
       flaggedCount: 0,
       missedSessionsLast7d: 0,
+      availableCount: 0,
+      restrictedCount: 0,
+      outCount: 0,
     };
   }
   async todaySnapshot(_athleteId: string, _today: IsoDate) {

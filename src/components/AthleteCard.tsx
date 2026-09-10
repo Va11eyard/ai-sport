@@ -1,17 +1,19 @@
+"use client";
+
+import Link from "next/link";
+import { motion, useReducedMotion } from "motion/react";
 import { Badge } from "@astryxdesign/core/Badge";
-import { ClickableCard } from "@astryxdesign/core/ClickableCard";
-import { HStack } from "@astryxdesign/core/HStack";
-import { StatusDot } from "@astryxdesign/core/StatusDot";
 import { Text } from "@astryxdesign/core/Text";
-import { VStack } from "@astryxdesign/core/VStack";
 import { ArcGauge } from "@/components/ArcGauge";
 import { Sparkline } from "@/components/Sparkline";
+import type { Availability } from "@/lib/athletes/availability";
 import type { Athlete, DailyPhysio, RiskZone } from "@/lib/wearables/types";
 
-const ZONE_DOT: Record<RiskZone, { variant: "warning" | "success" | "neutral"; label: string }> = {
-  flag: { variant: "warning", label: "флаг риска" },
-  normal: { variant: "success", label: "норма" },
-  missing: { variant: "neutral", label: "нет данных" },
+const AVAIL_LABEL: Record<Availability, string> = {
+  water: "на воду",
+  restricted: "ограничение",
+  out: "вне",
+  missing: "нет данных",
 };
 
 export function AthleteCard({
@@ -19,41 +21,64 @@ export function AthleteCard({
   today,
   hrv7,
   zone,
+  availability,
+  why,
   featured,
 }: {
   athlete: Athlete;
   today: DailyPhysio | null;
   hrv7: (number | null)[];
   zone: RiskZone;
+  availability: Availability;
+  why: string;
   featured?: boolean;
 }) {
-  const status = ZONE_DOT[zone];
+  const reduce = useReducedMotion();
   return (
-    <ClickableCard
-      href={`/athletes/${athlete.id}`}
-      label={athlete.name}
-      elevation="low"
-      variant={zone === "flag" ? "orange" : zone === "normal" ? "green" : "default"}
-      height={featured ? 200 : 148}
+    <motion.div
+      className="h-full"
+      whileHover={reduce ? undefined : { y: -2 }}
+      transition={{ duration: 0.18 }}
     >
-      <VStack gap={3}>
-        <HStack hAlign="between" vAlign="start">
+      <Link
+        href={`/athletes/${athlete.id}`}
+        aria-label={`${athlete.name}, сегодня ${AVAIL_LABEL[availability]}, открыть день`}
+        className={`athlete-tile${featured ? " athlete-tile--featured" : ""}`}
+      >
+        <span
+          className={`athlete-tile__rail athlete-tile__rail--${availability}`}
+          aria-hidden
+        />
+        <div className="athlete-tile__body">
           <Badge label={athlete.position} variant="neutral" />
-          <StatusDot variant={status.variant} label={status.label} />
-        </HStack>
-        <Text display="block">{athlete.name}</Text>
-        <HStack hAlign="between" vAlign="end" gap={3}>
-          <ArcGauge
-            value={today?.readiness ?? null}
-            size={featured ? 72 : 56}
-            label={today ? "readiness" : "нет данных"}
-            tone={zone === "flag" ? "risk" : "ready"}
-          />
-          <div className="min-w-0 flex-1">
-            <Sparkline values={hrv7} width={featured ? 120 : 88} />
+          <p className="athlete-tile__name">{athlete.name}</p>
+          <p className="athlete-tile__today">
+            Сегодня: {AVAIL_LABEL[availability]}
+          </p>
+          <Text type="supporting" display="block">
+            {availability === "missing" ? why : `причина: ${why}`}
+          </Text>
+          <div className="mt-auto flex items-end justify-between gap-3">
+            <ArcGauge
+              value={today?.readiness ?? null}
+              size={featured ? 88 : 56}
+              label="готовность"
+              tone={zone === "flag" ? "risk" : "ready"}
+            />
+            <div className="min-w-0 flex-1 pb-1">
+              <Sparkline
+                values={hrv7}
+                width={featured ? 140 : 88}
+                tone={zone === "flag" ? "risk" : "ready"}
+              />
+              <Text type="supporting" display="block">
+                HRV, 7 дней
+              </Text>
+            </div>
           </div>
-        </HStack>
-      </VStack>
-    </ClickableCard>
+          <p className="athlete-tile__open">открыть день</p>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

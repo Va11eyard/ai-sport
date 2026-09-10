@@ -2,10 +2,12 @@ export function Sparkline({
   values,
   width = 88,
   height = 28,
+  tone = "ready",
 }: {
   values: (number | null)[];
   width?: number;
   height?: number;
+  tone?: "ready" | "risk";
 }) {
   const nums = values.filter((v): v is number => v != null);
   if (nums.length < 2) {
@@ -23,6 +25,7 @@ export function Sparkline({
       return `${x},${y}`;
     })
     .filter((p): p is string => p != null);
+  const stroke = tone === "risk" ? "var(--color-risk)" : "var(--color-ready)";
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
@@ -31,7 +34,7 @@ export function Sparkline({
     >
       <polyline
         fill="none"
-        stroke="var(--color-ready)"
+        stroke={stroke}
         strokeWidth="2"
         points={d.join(" ")}
       />
