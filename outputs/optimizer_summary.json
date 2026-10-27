@@ -1,0 +1,168 @@
+{
+  "scenarios": [
+    {
+      "scenario": "base",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.55, \"value\": 0.25, \"safety\": 0.2}",
+      "cost_m": 27.0,
+      "leftover_m": 23.0,
+      "score": 238.9810639204415,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "value_first",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.35, \"value\": 0.45, \"safety\": 0.2}",
+      "cost_m": 27.0,
+      "leftover_m": 23.0,
+      "score": 248.3396671593079,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "quality_first",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.75, \"value\": 0.1, \"safety\": 0.15}",
+      "cost_m": 31.0,
+      "leftover_m": 19.0,
+      "score": 239.12887110773394,
+      "needs_filled": 3,
+      "players": "CB: José Ramiro Funes Mori (10.0m); CM: Idrissa Gana Gueye (9.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "safety_first",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.4, \"value\": 0.2, \"safety\": 0.4}",
+      "cost_m": 24.0,
+      "leftover_m": 26.0,
+      "score": 246.75656752815038,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Idrissa Gana Gueye (9.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "budget_minus_20",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 40.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.55, \"value\": 0.25, \"safety\": 0.2}",
+      "cost_m": 27.0,
+      "leftover_m": 13.0,
+      "score": 238.9810639204415,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "budget_minus_40",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 30.0,
+      "max_risk": 70,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.55, \"value\": 0.25, \"safety\": 0.2}",
+      "cost_m": 27.0,
+      "leftover_m": 3.0,
+      "score": 238.9810639204415,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)"
+    },
+    {
+      "scenario": "youth_policy",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 70,
+      "max_age": 24,
+      "weights": "{\"fit\": 0.55, \"value\": 0.25, \"safety\": 0.2}",
+      "cost_m": 42.0,
+      "leftover_m": 8.0,
+      "score": 193.6725621387751,
+      "needs_filled": 3,
+      "players": "CB: Chancel Mbemba Mangulu (10.0m); CM: Emre Can (18.0m); ST: Aleksandar Mitrović (14.0m)"
+    },
+    {
+      "scenario": "risk_averse",
+      "feasible": true,
+      "relaxed": false,
+      "budget_m": 50.0,
+      "max_risk": 45,
+      "max_age": 29,
+      "weights": "{\"fit\": 0.55, \"value\": 0.25, \"safety\": 0.2}",
+      "cost_m": 27.0,
+      "leftover_m": 23.0,
+      "score": 238.9810639204415,
+      "needs_filled": 3,
+      "players": "CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)"
+    }
+  ],
+  "base": {
+    "cost": 27000000.0,
+    "score": 238.9810639204415,
+    "leftover": 23000000.0,
+    "players": [
+      {
+        "need": "CB",
+        "display_name": "Steve Cook",
+        "team_name": "AFC Bournemouth",
+        "market_value": 3000000.0,
+        "fit": 57.38461538461539,
+        "value": 100.0,
+        "safety": 95.67624271929468,
+        "score_w": 75.6967870053974
+      },
+      {
+        "need": "CM",
+        "display_name": "Francis Joseph Coquelin",
+        "team_name": "Arsenal FC",
+        "market_value": 12000000.0,
+        "fit": 81.05263157894737,
+        "value": 82.10526315789474,
+        "safety": 73.85988163074434,
+        "score_w": 79.87723948404361
+      },
+      {
+        "need": "ST",
+        "display_name": "Odion Jude Ighalo",
+        "team_name": "Watford FC",
+        "market_value": 12000000.0,
+        "fit": 79.375,
+        "value": 82.5,
+        "safety": 95.62893715500256,
+        "score_w": 83.40703743100052
+      }
+    ]
+  },
+  "brute_force_check": {
+    "score": 238.9810639204415,
+    "cost": 27000000.0,
+    "names": [
+      "Steve Cook",
+      "Francis Joseph Coquelin",
+      "Odion Jude Ighalo"
+    ],
+    "needs": [
+      "CB",
+      "CM",
+      "ST"
+    ]
+  },
+  "sensitivity_rows": 11
+}

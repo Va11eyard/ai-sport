@@ -1,0 +1,117 @@
+{
+  "pool": {
+    "CB": 13,
+    "CM": 19,
+    "ST": 8
+  },
+  "top": [
+    {
+      "need": "ST",
+      "display_name": "Odion Jude Ighalo",
+      "team_name": "Watford FC",
+      "age": 27.04,
+      "market_value": 12000000.0,
+      "fit": 79.38,
+      "value": 82.5,
+      "safety": 95.63,
+      "score": 83.41,
+      "cluster_label": "Aerial duels + Box presence"
+    },
+    {
+      "need": "CM",
+      "display_name": "Francis Joseph Coquelin",
+      "team_name": "Arsenal FC",
+      "age": 25.14,
+      "market_value": 12000000.0,
+      "fit": 81.05,
+      "value": 82.11,
+      "safety": 73.86,
+      "score": 79.88,
+      "cluster_label": "Ball winning + Pressing"
+    },
+    {
+      "need": "CM",
+      "display_name": "Idrissa Gana Gueye",
+      "team_name": "Aston Villa",
+      "age": 26.76,
+      "market_value": 9000000.0,
+      "fit": 95.26,
+      "value": 22.11,
+      "safety": 91.26,
+      "score": 76.17,
+      "cluster_label": "Ball winning + Pressing"
+    },
+    {
+      "need": "CM",
+      "display_name": "Victor Wanyama",
+      "team_name": "Southampton FC",
+      "age": 25.02,
+      "market_value": 15000000.0,
+      "fit": 86.58,
+      "value": 45.26,
+      "safety": 84.38,
+      "score": 75.81,
+      "cluster_label": "Ball winning + Pressing"
+    },
+    {
+      "need": "CB",
+      "display_name": "Steve Cook",
+      "team_name": "AFC Bournemouth",
+      "age": 25.2,
+      "market_value": 3000000.0,
+      "fit": 57.38,
+      "value": 100.0,
+      "safety": 95.68,
+      "score": 75.7,
+      "cluster_label": "Clearing + Passing security"
+    },
+    {
+      "need": "CB",
+      "display_name": "Virgil van Dijk",
+      "team_name": "Southampton FC",
+      "age": 24.98,
+      "market_value": 12000000.0,
+      "fit": 57.23,
+      "value": 83.08,
+      "safety": 94.61,
+      "score": 71.17,
+      "cluster_label": "Clearing + Passing security"
+    },
+    {
+      "need": "ST",
+      "display_name": "Troy Deeney",
+      "team_name": "Watford FC",
+      "age": 28.01,
+      "market_value": 9000000.0,
+      "fit": 55.0,
+      "value": 80.0,
+      "safety": 95.46,
+      "score": 69.34,
+      "cluster_label": "Aerial duels + Box presence"
+    },
+    {
+      "need": "ST",
+      "display_name": "Joshua King",
+      "team_name": "AFC Bournemouth",
+      "age": 24.46,
+      "market_value": 2000000.0,
+      "fit": 50.62,
+      "value": 100.0,
+      "safety": 81.49,
+      "score": 69.14,
+      "cluster_label": "Shooting + Box presence"
+    },
+    {
+      "need": "CB",
+      "display_name": "José Ramiro Funes Mori",
+      "team_name": "Everton FC",
+      "age": 25.33,
+      "market_value": 10000000.0,
+      "fit": 68.46,
+      "value": 60.0,
+      "safety": 82.07,
+      "score": 69.07,
+      "cluster_label": "Clearing + Passing security"
+    }
+  ]
+}

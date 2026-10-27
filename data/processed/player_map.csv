@@ -1,0 +1,422 @@
+sb_player_id,sb_player_name,sb_team,tm_player_id,tm_player_name,confidence,manual
+20005,Toby Alderweireld,Tottenham Hotspur,42710.0,Toby Alderweireld (42710),107.0,False
+3813,Wes Morgan,Leicester City,10003.0,Wes Morgan (10003),107.0,False
+3815,Kasper Schmeichel,Leicester City,16911.0,Kasper Schmeichel (16911),100.0,True
+3608,Simon Francis,AFC Bournemouth,13573.0,Simon Francis (13573),107.0,False
+3344,Andrew Surman,AFC Bournemouth,29975.0,Andrew Surman (29975),107.0,False
+3522,Heurelho da Silva Gomes,Watford,19059.0,Heurelho Gomes (19059),107.0,False
+3523,Craig Dawson,West Bromwich Albion,121477.0,Craig Dawson (121477),107.0,False
+4022,Darren Fletcher,West Bromwich Albion,3547.0,Darren Fletcher (3547),107.0,False
+10955,Harry Kane,Tottenham Hotspur,132098.0,Harry Kane (132098),107.0,False
+3099,Hugo Lloris,Tottenham Hotspur,17965.0,Hugo Lloris (17965),107.0,False
+3262,Łukasz Fabiański,Swansea City,29692.0,Lukasz Fabianski (29692),103.8,False
+3062,Aaron Cresswell,West Ham United,92571.0,Aaron Cresswell (92571),107.0,False
+3454,Troy Deeney,Watford,65477.0,Troy Deeney (65477),107.0,False
+3345,Charlie Daniels,AFC Bournemouth,,,68.1,False
+10956,Eric Dier,Tottenham Hotspur,175722.0,Eric Dier (175722),103.0,False
+3498,Ignacio Monreal Eraso,Arsenal,43003.0,Nacho Monreal (43003),107.0,False
+3644,Ashley Williams,Swansea City,67355.0,Ashley Williams (67355),107.0,False
+3511,Héctor Bellerín Moruno,Arsenal,191217.0,Héctor Bellerín (191217),107.0,False
+3091,Moussa Sissoko,Newcastle United,46001.0,Moussa Sissoko (46001),103.0,False
+3874,Mark Noble,West Ham United,31835.0,Mark Noble (31835),107.0,False
+3957,César Azpilicueta Tanco,Chelsea,57500.0,César Azpilicueta (57500),107.0,False
+3341,Steve Cook,AFC Bournemouth,90836.0,Steve Cook (90836),107.0,False
+4429,Yann Gérard M'Vila,Sunderland,60573.0,yann-mvila,107.0,False
+3960,José Miguel da Rocha Fonte,Southampton,33829.0,José Fonte (33829),107.0,False
+3289,Romelu Lukaku Menama,Everton,96341.0,Romelu Lukaku (96341),97.0,False
+9625,Glenn Whelan,Stoke City,12124.0,Glenn Whelan (12124),107.0,False
+10960,Jamie Vardy,Leicester City,197838.0,Jamie Vardy (197838),107.0,False
+3567,Georginio Wijnaldum,Newcastle United,49499.0,Georginio Wijnaldum (49499),107.0,False
+10958,Chris Smalling,Manchester United,103427.0,Chris Smalling (103427),107.0,False
+3407,Scott Dann,Crystal Palace,62688.0,Scott Dann (62688),107.0,False
+40123,Robert Huth,Leicester City,2998.0,Robert Huth (2998),107.0,False
+5458,Odion Jude Ighalo,Watford,62121.0,Odion Ighalo (62121),107.0,False
+3311,Daley Blind,Manchester United,12282.0,Daley Blind (12282),107.0,False
+3291,Joe Hart,Manchester City,40204.0,Joe Hart (40204),107.0,False
+3467,Erik Pieters,Stoke City,43763.0,Erik Pieters (43763),107.0,False
+4275,Ross Barkley,Everton,131978.0,Ross Barkley (131978),103.0,False
+3436,Idrissa Gana Gueye,Aston Villa,126665.0,Idrissa Gueye (126665),107.0,False
+3539,Simon Mignolet,Liverpool,50219.0,Simon Mignolet (50219),107.0,False
+3333,David de Gea Quintana,Manchester United,59377.0,David de Gea (59377),107.0,False
+3461,Petr Čech,Arsenal,5658.0,Petr Cech (5658),107.0,False
+3669,Virgil van Dijk,Southampton,139208.0,Virgil van Dijk (139208),107.0,False
+3596,Gareth McAuley,West Bromwich Albion,40567.0,Gareth McAuley (40567),107.0,False
+3814,Riyad Mahrez,Leicester City,171424.0,Riyad Mahrez (171424),103.0,False
+3496,Mesut Özil,Arsenal,35664.0,Mesut Özil (35664),103.0,False
+3662,Danny Drinkwater,Leicester City,73491.0,Danny Drinkwater (73491),107.0,False
+3263,Craig Cathcart,Watford,59606.0,Craig Cathcart (59606),107.0,False
+3684,Cheikhou Kouyaté,West Ham United,66934.0,Cheikhou Kouyaté (66934),107.0,False
+3961,N''Golo Kanté,Leicester City,225083.0,ngolo-kante,100.0,True
+4884,Pape N''Diaye Souaré,Crystal Palace,125868.0,Pape Souaré (125868),107.0,False
+10967,Robert Brady,Norwich City,128229.0,Robbie Brady (128229),103.0,False
+3049,Matt Ritchie,AFC Bournemouth,92469.0,Matt Ritchie (92469),107.0,False
+4590,Nathaniel Edwin Clyne,Liverpool,85177.0,Nathaniel Clyne (85177),107.0,False
+3321,Patrick van Aanholt,Sunderland,52119.0,Patrick van Aanholt (52119),107.0,False
+3294,Juan Manuel Mata García,Manchester United,44068.0,Juan Mata (44068),103.0,False
+9578,Jonathan Howson,Norwich City,45395.0,Jonathan Howson (45395),107.0,False
+9627,Neil Taylor,Swansea City,67416.0,Neil Taylor (67416),107.0,False
+3205,Kyle Walker,Tottenham Hotspur,95424.0,Kyle Walker (95424),107.0,False
+3043,Christian Dannemann Eriksen,Tottenham Hotspur,69633.0,Christian Eriksen (69633),103.0,False
+3347,André Ayew Pelé,Swansea City,45403.0,André Ayew (45403),97.0,False
+3044,Chancel Mbemba Mangulu,Newcastle United,203348.0,Chancel Mbemba (203348),107.0,False
+5594,Branislav Ivanović,Chelsea,36827.0,Branislav Ivanovic (36827),107.0,False
+3944,Gylfi Þór Sigurðsson,Swansea City,90466.0,Gylfi Sigurdsson (90466),103.0,False
+3478,Francesc Fàbregas i Soler,Chelsea,8806.0,Cesc Fàbregas (8806),102.8,False
+20045,Ryan Bertrand,Southampton,40611.0,Ryan Bertrand (40611),107.0,False
+20074,Artur Boruc,AFC Bournemouth,15220.0,Artur Boruc (15220),107.0,False
+3290,Federico Fernández,Swansea City,85475.0,Federico Fernández (85475),107.0,False
+3623,Adrián San Miguel del Castillo,West Ham United,71271.0,Adrián (71271),107.0,False
+3693,Damien Delaney,Crystal Palace,36861.0,Damien Delaney (36861),107.0,False
+3967,Claudio Ariel Yacob,West Bromwich Albion,45330.0,Claudio Yacob (45330),107.0,False
+3394,Laurent Koscielny,Arsenal,76277.0,Laurent Koscielny (76277),107.0,False
+3633,Gareth Barry,Everton,3291.0,Gareth Barry (3291),107.0,False
+3721,Etienne Capoue,Watford,63494.0,Étienne Capoue (63494),107.0,False
+3626,Ben Watson,Watford,14081.0,Ben Watson (14081),107.0,False
+3325,Marko Arnautović,Stoke City,41384.0,Marko Arnautovic (41384),107.0,False
+20285,Joleon Lescott,Aston Villa,4241.0,Joleon Lescott (4241),107.0,False
+3650,Daryl Janmaat,Newcastle United,,,52.5,False
+3537,Jack Butland,Stoke City,128899.0,Jack Butland (128899),107.0,False
+31296,Sébastien Aymar Bassong Nguena,Norwich City,33951.0,Sébastien Bassong (33951),107.0,False
+3244,John Stones,Everton,186590.0,John Stones (186590),107.0,False
+3307,Marc Albrighton,Leicester City,61560.0,Marc Albrighton (61560),107.0,False
+3472,Willian Borges da Silva,Chelsea,52769.0,Willian (52769),107.0,False
+3054,Fernando Luiz Roza,Manchester City,26267.0,Fernandinho (26267),107.0,False
+3583,Ashley Westwood,Aston Villa,91317.0,Ashley Westwood (91317),107.0,False
+3812,Christian Fuchs,Leicester City,6636.0,Christian Fuchs (6636),107.0,False
+21212,Russell Martin,Norwich City,67303.0,Russell Martin (67303),107.0,False
+3277,Yohan Cabaye,Crystal Palace,29434.0,Yohan Cabaye (29434),107.0,False
+3443,Joel Ward,Crystal Palace,92572.0,Joel Ward (92572),107.0,False
+40121,Philipp Wollscheid,Stoke City,53173.0,Philipp Wollscheid (53173),107.0,False
+3090,Nicolás Hernán Otamendi,Manchester City,54781.0,Nicolás Otamendi (54781),102.0,False
+3270,Danny Simpson,Leicester City,37442.0,Danny Simpson (37442),107.0,False
+20039,Anthony Martial,Manchester United,182877.0,Anthony Martial (182877),107.0,False
+3517,Aaron Ramsey,Arsenal,50057.0,Aaron Ramsey (50057),107.0,False
+19688,Jason Puncheon,Crystal Palace,47995.0,Jason Puncheon (47995),107.0,False
+3488,Wayne Hennessey,Crystal Palace,45494.0,Wayne Hennessey (45494),107.0,False
+3828,Steven Davis,Southampton,28973.0,Steven Davis (28973),103.0,False
+3629,Sadio Mané,Southampton,200512.0,Sadio Mané (200512),107.0,False
+3077,Jan Vertonghen,Tottenham Hotspur,43250.0,Jan Vertonghen (43250),107.0,False
+11012,Jonathan Grant Evans,West Bromwich Albion,42412.0,Jonny Evans (42412),107.0,False
+3491,Dimitri Payet,West Ham United,37647.0,Dimitri Payet (37647),103.0,False
+3098,Victor Wanyama,Southampton,77760.0,Victor Wanyama (77760),107.0,False
+4041,José Salomón Rondón Giménez,West Bromwich Albion,80197.0,Salomón Rondón (80197),107.0,False
+3337,Jermain Defoe,Sunderland,3875.0,Jermain Defoe (3875),107.0,False
+3515,Alberto Moreno Pérez,Liverpool,207917.0,Alberto Moreno (207917),107.0,False
+3462,Jack Frank Porteous Cork,Swansea City,40613.0,Jack Cork (40613),107.0,False
+12608,Bradley Guzan,Aston Villa,39471.0,Brad Guzan (39471),102.0,False
+3507,Wilfried Zaha,Crystal Palace,145988.0,Wilfried Zaha (145988),104.0,False
+3493,Emre Can,Liverpool,119296.0,Emre Can (119296),103.0,False
+3514,James McClean,West Bromwich Albion,85935.0,James McClean (85935),107.0,False
+3991,Allan Romeo Nyom,Watford,111508.0,Allan Nyom (111508),107.0,False
+3094,Bamidele Alli,Tottenham Hotspur,207929.0,Dele Alli (207929),100.0,True
+3607,James McCarthy,Everton,45333.0,James McCarthy (45333),107.0,False
+3381,Nemanja Matić,Chelsea,74683.0,Nemanja Matic (74683),107.0,False
+7110,Bacary Sagna,Manchester City,26764.0,Bacary Sagna (26764),107.0,False
+3343,Dan Gosling,AFC Bournemouth,44983.0,Dan Gosling (44983),107.0,False
+3385,Alexis Alejandro Sánchez Sánchez,Arsenal,40433.0,Alexis Sánchez (40433),107.0,False
+3473,James Philip Milner,Liverpool,3333.0,James Milner (3333),107.0,False
+23635,John Ruddy,Norwich City,29712.0,John Ruddy (29712),107.0,False
+3604,Olivier Giroud,Arsenal,82442.0,Olivier Giroud (82442),107.0,False
+3450,Jordan Ayew,Aston Villa,108354.0,Jordan Ayew (108354),107.0,False
+9533,Leandro Bacuna,Aston Villa,126014.0,Leandro Bacuna (126014),103.0,False
+3538,Wayne Mark Rooney,Manchester United,3332.0,Wayne Rooney (3332),107.0,False
+4589,Séamus Coleman,Everton,68390.0,Séamus Coleman (68390),107.0,False
+9649,Jack Colback,Newcastle United,61644.0,Jack Colback (61644),107.0,False
+3585,Erik Lamela,Tottenham Hotspur,111630.0,Erik Lamela (111630),107.0,False
+5198,Diego da Silva Costa,Chelsea,44779.0,Diego Costa (44779),107.0,False
+3480,Geoff Cameron,Stoke City,31642.0,Geoff Cameron (31642),107.0,False
+3237,Sergio Leonel Agüero del Castillo,Manchester City,26399.0,Sergio Agüero (26399),107.0,False
+3286,Nathan Redmond,Norwich City,129078.0,Nathan Redmond (129078),103.0,False
+26207,Fabricio Coloccini,Newcastle United,6150.0,Fabricio Coloccini (6150),107.0,False
+9642,Alan Hutton,Aston Villa,9619.0,Alan Hutton (9619),107.0,False
+3087,Gnégnéri Yaya Touré,Manchester City,13091.0,Yaya Touré (13091),104.0,False
+3843,Angelo Obinze Ogbonna,West Ham United,48002.0,Angelo Ogbonna (48002),107.0,False
+3831,Dušan Tadić,Southampton,36139.0,Dušan Tadić (36139),107.0,False
+5596,Aleksandar Kolarov,Manchester City,46156.0,Aleksandar Kolarov (46156),107.0,False
+6821,Jesús Navas González,Manchester City,15956.0,Jesús Navas (15956),103.0,False
+3057,Jonjo Shelvey,Swansea City,71292.0,Jonjo Shelvey (71292),107.0,False
+3037,Mousa Sidi Yaya Dembélé,Tottenham Hotspur,19368.0,Mousa Dembélé (19368),104.9,False
+13042,Tim Howard,Everton,4267.0,Tim Howard (4267),107.0,False
+4629,José Ramiro Funes Mori,Everton,11111.0,Ramiro Funes Mori (11111),102.0,False
+10783,Lee Cattermole,Sunderland,,,88.5,False
+4269,Aleksandar Mitrović,Newcastle United,51152.0,Aleksandar Mitrović (51152),107.0,False
+3600,Morgan Schneiderlin,Manchester United,56818.0,Morgan Schneiderlin (56818),107.0,False
+3621,Eden Hazard,Chelsea,50202.0,Eden Hazard (50202),107.0,False
+3464,James McArthur,Crystal Palace,41416.0,James McArthur (41416),107.0,False
+4724,Glen Johnson,Stoke City,3881.0,Glen Johnson (3881),107.0,False
+11062,Graziano Pellè,Southampton,29594.0,Graziano Pellè (29594),107.0,False
+4891,Ibrahim Afellay,Stoke City,15760.0,Ibrahim Afellay (15760),103.0,False
+4280,Winston Reid,West Ham United,37526.0,Winston Reid (37526),107.0,False
+3594,Danny Rose,Tottenham Hotspur,50174.0,Danny Rose (50174),107.0,False
+3475,Per Mertesacker,Arsenal,6710.0,Per Mertesacker (6710),107.0,False
+3842,Shane Long,Southampton,37304.0,Shane Long (37304),107.0,False
+4090,Adam David Lallana,Liverpool,43530.0,Adam Lallana (43530),103.0,False
+16072,Vurnon Anita,Newcastle United,30670.0,Vurnon Anita (30670),107.0,False
+6409,Adam Smith,AFC Bournemouth,61841.0,Adam Smith (61841),107.0,False
+3589,Yannick Bolasie Yala,Crystal Palace,75471.0,Yannick Bolasie (75471),107.0,False
+3288,Miguel Ángel Britos Cabrera,Watford,76799.0,Miguel Britos (76799),107.0,False
+3509,Thibaut Courtois,Chelsea,108390.0,Thibaut Courtois (108390),107.0,False
+5108,Glyn Oliver Myhill,West Bromwich Albion,3838.0,Boaz Myhill (3838),107.0,False
+3810,Shinji Okazaki,Leicester City,79642.0,Shinji Okazaki (79642),107.0,False
+3349,Michail Antonio,West Ham United,104124.0,Michail Antonio (104124),103.0,False
+3533,Xherdan Shaqiri,Stoke City,86792.0,Xherdan Shaqiri (86792),103.0,False
+3076,Ayoze Pérez Gutiérrez,Newcastle United,246968.0,Ayoze Pérez (246968),107.0,False
+42700,Micah Richards,Aston Villa,32617.0,Micah Richards (32617),107.0,False
+3958,Pedro Eliezer Rodríguez Ledesma,Chelsea,65278.0,Pedro (65278),107.0,False
+3501,Philippe Coutinho Correia,Liverpool,80444.0,Philippe Coutinho (80444),103.0,False
+9485,Craig Gardner,West Bromwich Albion,37171.0,Craig Gardner (37171),107.0,False
+10503,Billy Jones,Sunderland,36866.0,Billy Jones (36866),107.0,False
+20287,John Terry,Chelsea,3160.0,John Terry (3160),107.0,False
+4746,Younes Kaboul,Sunderland,27114.0,Younès Kaboul (27114),107.0,False
+6870,José Manuel Jurado Marín,Watford,28261.0,José Manuel Jurado (28261),107.0,False
+20527,Jonas Olsson,West Bromwich Albion,25248.0,Jonas Olsson (25248),107.0,False
+3389,Eliaquim Mangala,Manchester City,90681.0,Eliaquim Mangala (90681),107.0,False
+16890,John O'Shea,Sunderland,3540.0,john-oshea,102.2,False
+3089,Kevin De Bruyne,Manchester City,88755.0,Kevin De Bruyne (88755),103.0,False
+10966,Wes Hoolahan,Norwich City,24589.0,Wes Hoolahan (24589),103.0,False
+3535,Roberto Firmino Barbosa de Oliveira,Liverpool,131789.0,Roberto Firmino (131789),107.0,False
+43081,Almen Abdi,Watford,9966.0,Almen Abdi (9966),107.0,False
+4751,Michael Carrick,Manchester United,3878.0,Michael Carrick (3878),107.0,False
+3329,Cédric Ricardo Alves Soares,Southampton,112988.0,Cédric Soares (112988),107.0,False
+3316,James Tomkins,West Ham United,61592.0,James Tomkins (61592),107.0,False
+7780,Lucas Pezzini Leiva,Liverpool,41414.0,Lucas Leiva (41414),107.0,False
+3645,Gary Cahill,Chelsea,27511.0,Gary Cahill (27511),107.0,False
+9463,Alexander Banor Tettey,Norwich City,12384.0,Alexander Tettey (12384),107.0,False
+4587,Matteo Darmian,Manchester United,54906.0,Matteo Darmian (54906),107.0,False
+3233,Raheem Sterling,Manchester City,134425.0,Raheem Sterling (134425),107.0,False
+3456,Kurt Happy Zouma,Chelsea,157509.0,Kurt Zouma (157509),107.0,False
+3346,Joshua King,AFC Bournemouth,91059.0,Joshua King (91059),107.0,False
+3595,Manuel Lanzini,West Ham United,135853.0,Manuel Lanzini (135853),107.0,False
+3306,Nathan Aké,Watford,177476.0,Nathan Aké (177476),107.0,False
+3471,Dejan Lovren,Liverpool,37838.0,Dejan Lovren (37838),107.0,False
+7171,Fabio Borini,Sunderland,96754.0,Fabio Borini (96754),107.0,False
+3065,Paul Dummett,Newcastle United,170321.0,Paul Dummett (170321),107.0,False
+3096,Rob Elliot,Newcastle United,39037.0,Rob Elliot (39037),107.0,False
+18872,Martin Škrtel,Liverpool,24180.0,Martin Skrtel (24180),107.0,False
+3483,Mamadou Sakho,Liverpool,47713.0,Mamadou Sakho (47713),107.0,False
+3605,Sung-Yeung Ki,Swansea City,81796.0,Sung-yueng Ki (81796),99.3,False
+20046,Phil Jagielka,Everton,13520.0,Phil Jagielka (13520),107.0,False
+9930,Ryan Bennett,Norwich City,67252.0,Ryan Bennett (67252),107.0,False
+7153,Jordan Veretout,Aston Villa,164771.0,Jordan Veretout (164771),107.0,False
+3973,Àngel Rangel Zaragoza,Swansea City,66550.0,Ángel Rangel (66550),107.0,False
+3340,Kyle Naughton,Swansea City,66219.0,Kyle Naughton (66219),107.0,False
+3658,DeAndre Yedlin,Sunderland,255916.0,DeAndre Yedlin (255916),107.0,False
+6746,Gabriel Armando de Abreu,Arsenal,149498.0,Gabriel Paulista (149498),107.0,False
+9452,Gary O''Neil,Norwich City,3995.0,gary-oneil,102.2,False
+3541,Chris Brunt,West Bromwich Albion,36814.0,Chris Brunt (36814),103.0,False
+3064,David Josué Jiménez Silva,Manchester City,35518.0,David Silva (35518),103.0,False
+4630,Saido Berahino,West Bromwich Albion,128897.0,Saido Berahino (128897),107.0,False
+5475,John Michael Nchekwube Obinna,Chelsea,30739.0,John Obi Mikel (30739),107.0,False
+4807,Cameron Jerome,Norwich City,35855.0,Cameron Jerome (35855),107.0,False
+3309,Sebastian Prödl,Watford,37981.0,Sebastian Prödl (37981),107.0,False
+3576,Martin Olsson,Norwich City,38073.0,Martin Olsson (38073),107.0,False
+40122,Oscar dos Santos Emboaba Júnior,Chelsea,85314.0,Oscar (85314),103.0,False
+2966,Stéphane Sessègnon,West Bromwich Albion,37157.0,Stéphane Sessègnon (37157),107.0,False
+4035,Ryan Shawcross,Stoke City,45861.0,Ryan Shawcross (45861),107.0,False
+3670,Jonathan Walters,Stoke City,3306.0,Jonathan Walters (3306),107.0,False
+3437,Francis Joseph Coquelin,Arsenal,74869.0,Francis Coquelin (74869),102.0,False
+9539,Vito Mannone,Sunderland,33781.0,Vito Mannone (33781),107.0,False
+4913,Bojan Krkíc Pérez,Stoke City,44675.0,Bojan Krkic (44675),103.0,False
+20521,Bafétimbi Gomis,Swansea City,,,46.2,False
+16003,Fernando Francisco Reges,Manchester City,51174.0,Fernando (51174),107.0,False
+40118,Ikechi Anya,Watford,107427.0,Ikechi Anya (107427),107.0,False
+3449,Wayne Routledge,Swansea City,14066.0,Wayne Routledge (14066),107.0,False
+3304,Harry Arter,AFC Bournemouth,55742.0,Harry Arter (55742),107.0,False
+19362,Rudy Gestede,Aston Villa,39908.0,Rudy Gestede (39908),107.0,False
+3293,Jesse Lingard,Manchester United,141660.0,Jesse Lingard (141660),103.0,False
+27146,Aly Cissokho,Aston Villa,57515.0,Aly Cissokho (57515),107.0,False
+3970,Fraser Forster,Southampton,52570.0,Fraser Forster (52570),107.0,False
+3683,Tom Cleverley,Everton,73484.0,Tom Cleverley (73484),107.0,False
+3272,Oriol Romeu Vidal,Southampton,66100.0,Oriol Romeu (66100),107.0,False
+11117,Scott Sinclair,Aston Villa,31552.0,Scott Sinclair (31552),107.0,False
+23663,Dieumerci Mbokani Bezua,Norwich City,44624.0,Dieumerci Mbokani (44624),102.0,False
+16181,Jordy Clasie,Southampton,104223.0,Jordy Clasie (104223),107.0,False
+3953,Aaron Lennon,Everton,14221.0,Aaron Lennon (14221),107.0,False
+3328,James Ward-Prowse,Southampton,181579.0,James Ward-Prowse (181579),107.0,False
+5489,Mile Jedinak,Crystal Palace,28336.0,Mile Jedinak (28336),107.0,False
+3606,Ander Herrera Agüera,Manchester United,99343.0,Ander Herrera (99343),107.0,False
+6871,Costel Fane Pantilimon,Sunderland,47659.0,Costel Pantilimon (47659),107.0,False
+20201,Maarten Stekelenburg,Southampton,4311.0,Maarten Stekelenburg (4311),107.0,False
+3380,Christian Benteke Liolo,Liverpool,50201.0,Christian Benteke (50201),107.0,False
+4631,Leon Britton,Swansea City,40043.0,Leon Britton (40043),107.0,False
+3962,Diafra Sakho,West Ham United,,,60.0,False
+2988,Memphis Depay,Manchester United,167850.0,Memphis Depay (167850),107.0,False
+3518,Leighton Baines,Everton,13507.0,Leighton Baines (13507),107.0,False
+26696,Arouna Koné,Everton,8552.0,Arouna Koné (8552),104.0,False
+3482,James Collins,West Ham United,12691.0,James Collins (12691),107.0,False
+3041,Ciaran Clark,Aston Villa,98240.0,Ciaran Clark (98240),107.0,False
+4271,Andy Carroll,West Ham United,48066.0,Andy Carroll (48066),107.0,False
+6800,Carles Gil de Pareja Vicent,Aston Villa,127987.0,Carles Gil (127987),103.0,False
+3463,Junior Stanislas,AFC Bournemouth,87672.0,Junior Stanislas (87672),103.0,False
+3339,Asmir Begović,Chelsea,33873.0,Asmir Begovic (33873),107.0,False
+3520,Jeffrey Schlupp,Leicester City,157506.0,Jeffrey Schlupp (157506),107.0,False
+3726,Gerard Deulofeu Lázaro,Everton,129476.0,Gerard Deulofeu (129476),107.0,False
+3668,Theo Walcott,Arsenal,33713.0,Theo Walcott (33713),107.0,False
+5685,Carlos Alberto Sánchez Moreno,Aston Villa,51226.0,Carlos Sánchez (51226),107.0,False
+7063,Jefferson Antonio Montero Vite,Swansea City,77932.0,Jefferson Montero (77932),107.0,False
+4053,Ben Foster,West Bromwich Albion,13572.0,Ben Foster (13572),107.0,False
+3490,James Morrison,West Bromwich Albion,27614.0,James Morrison (27614),107.0,False
+3646,Marc Pugh,AFC Bournemouth,,,88.5,False
+16457,Jeremain Lens,Sunderland,38497.0,Jeremain Lens (38497),107.0,False
+9528,Steven Naismith,Norwich City,12763.0,Steven Naismith (12763),107.0,False
+20641,Connor Wickham,Crystal Palace,95435.0,Connor Wickham (95435),107.0,False
+13286,Lamine Koné,Sunderland,57420.0,Lamine Koné (57420),104.0,False
+5540,Valon Behrami,Watford,21905.0,Valon Behrami (21905),107.0,False
+3086,Ben Davies,Tottenham Hotspur,192765.0,Ben Davies (192765),107.0,False
+3532,Jordan Brian Henderson,Liverpool,61651.0,Jordan Henderson (61651),107.0,False
+11386,Santiago Cazorla González,Arsenal,15799.0,Santi Cazorla (15799),107.0,False
+16334,Graham Dorrans,Norwich City,36608.0,Graham Dorrans (36608),107.0,False
+3603,Mame Biram Diouf,Stoke City,62049.0,Mame Diouf (62049),107.0,False
+4346,Gilbert Gianelli Imbula Wanga,Stoke City,130756.0,Giannelli Imbula (130756),102.0,False
+3602,Faustino Marcos Alberto Rojo,Manchester United,,,60.3,False
+21254,Carl Jenkinson,West Ham United,126321.0,Carl Jenkinson (126321),107.0,False
+6300,Sebastián Coates Nión,Sunderland,102427.0,Sebastián Coates (102427),107.0,False
+3598,Wilfried Guemiand Bony,Manchester City,,,52.9,False
+30702,Brendan Joel Zibusiso Galloway,Everton,208244.0,Brendan Galloway (208244),107.0,False
+42900,Cheik Ismaël Tioté,Newcastle United,,,58.8,False
+18414,Bastian Schweinsteiger,Manchester United,2514.0,Bastian Schweinsteiger (2514),107.0,False
+3101,Vincent Kompany,Manchester City,9594.0,Vincent Kompany (9594),107.0,False
+3635,Jordon Ibe,Liverpool,195652.0,Jordon Ibe (195652),107.0,False
+16309,Joel Robles Blázquez,Everton,101118.0,Joel Robles (101118),107.0,False
+18751,Jack Rodwell,Sunderland,57079.0,Jack Rodwell (57079),103.0,False
+6560,Marc Muniesa Martínez,Stoke City,74228.0,Marc Muniesa (74228),107.0,False
+3297,Andros Townsend,Newcastle United,61842.0,Andros Townsend (61842),107.0,False
+3081,Jamaal Lascelles,Newcastle United,183318.0,Jamaal Lascelles (183318),107.0,False
+42902,Adam Johnson,Sunderland,31579.0,Adam Johnson (31579),107.0,False
+3083,Heung-Min Son,Tottenham Hotspur,91845.0,Heung-min Son (91845),107.0,False
+3636,Charlie Adam,Stoke City,28990.0,Charlie Adam (28990),107.0,False
+22594,Matt Jarvis,Norwich City,15921.0,Matt Jarvis (15921),103.0,False
+3265,José Luis Sanmartín Mato,Stoke City,81999.0,Joselu (81999),102.0,False
+6631,Mathieu Flamini,Arsenal,17396.0,Mathieu Flamini (17396),107.0,False
+20302,Gaël Clichy,Manchester City,7449.0,Gaël Clichy (7449),107.0,False
+3590,Rhu-endly Martina,Southampton,91251.0,Cuco Martina (91251),92.5,False
+3897,Pedro Mba Obiang Avomo,West Ham United,101213.0,Pedro Obiang (101213),107.0,False
+13846,Jan Kirchhoff,Sunderland,49734.0,Jan Kirchhoff (49734),107.0,False
+24380,Tetchi Jores Charlemagne Ulrich Okore,Aston Villa,129085.0,Jores Okore (129085),102.0,False
+3196,Wahbi Khazri,Sunderland,103565.0,Wahbi Khazri (103565),103.0,False
+3469,Bakary Sako,Crystal Palace,46791.0,Bakary Sako (46791),107.0,False
+30289,Papiss Demba Cissé,Newcastle United,33952.0,Papiss Demba Cissé (33952),107.0,False
+3296,Marouane Fellaini-Bakkioui,Manchester United,39679.0,Marouane Fellaini (39679),107.0,False
+3651,Matt Targett,Southampton,250478.0,Matt Targett (250478),107.0,False
+3612,Ashley Young,Manchester United,14086.0,Ashley Young (14086),107.0,False
+4317,Kevin Mirallas,Everton,33639.0,Kevin Mirallas (33639),107.0,False
+3052,Pablo Javier Zabaleta Girod,Manchester City,20007.0,Pablo Zabaleta (20007),107.0,False
+3665,Andrew Philip King,Leicester City,56872.0,Andy King (56872),100.0,True
+3448,Martin Kelly,Crystal Palace,78959.0,Martin Kelly (78959),107.0,False
+42699,Gabriel Imuetinyan Agbonlahor,Aston Villa,37148.0,Gabriel Agbonlahor (37148),107.0,False
+12325,Abdul Rahman Baba,Chelsea,224884.0,Abdul Rahman Baba (224884),107.0,False
+3300,Maya Yoshida,Southampton,81789.0,Maya Yoshida (81789),107.0,False
+19288,Martín Gastón Demichelis,Manchester City,2963.0,Martín Demichelis (2963),107.0,False
+9626,Tommy Elphick,AFC Bournemouth,37152.0,Tommy Elphick (37152),107.0,False
+28559,Enner Remberto Valencia Lastra,West Ham United,139503.0,Enner Valencia (139503),107.0,False
+9554,Steven Fletcher,Sunderland,35099.0,Steven Fletcher (35099),107.0,False
+5836,Bryan Oviedo,Everton,124983.0,Bryan Oviedo (124983),107.0,False
+9014,Declan Rudd,Norwich City,74088.0,Declan Rudd (74088),107.0,False
+3963,Victor Moses,West Ham United,59866.0,Victor Moses (59866),107.0,False
+3529,Daniel Andre Sturridge,Liverpool,47082.0,Daniel Sturridge (47082),107.0,False
+4817,Joe Ledley,Crystal Palace,34409.0,Joe Ledley (34409),107.0,False
+3671,José Leonardo Ulloa,Leicester City,54890.0,Leonardo Ulloa (54890),100.0,True
+9628,James Grant Chester,West Bromwich Albion,73482.0,James Chester (73482),107.0,False
+3725,José Holebas,Watford,41112.0,Jose Cholevas (41112),95.0,False
+4831,Nacer Chadli,Tottenham Hotspur,59631.0,Nacer Chadli (59631),107.0,False
+3278,Benik Afobe,AFC Bournemouth,110858.0,Benik Afobe (110858),107.0,False
+3525,Alex Oxlade-Chamberlain,Arsenal,143424.0,Alex Oxlade-Chamberlain (143424),103.0,False
+22281,Duncan Watmore,Sunderland,248045.0,Duncan Watmore (248045),107.0,False
+18672,Mark Bunn,Aston Villa,49319.0,Mark Bunn (49319),107.0,False
+4416,Max-Alain Gradel,AFC Bournemouth,28140.0,Max Gradel (28140),100.0,False
+5581,Joel Nathaniel Campbell Samuels,Arsenal,131248.0,Joel Campbell (131248),107.0,False
+3318,Marcus Rashford,Manchester United,258923.0,Marcus Rashford (258923),107.0,False
+3267,Luis Antonio Valencia Mosquera,Manchester United,33544.0,Antonio Valencia (33544),107.0,False
+38412,Kolo Habib Touré,Liverpool,3202.0,Kolo Touré (3202),104.0,False
+9461,Timm Klose,Norwich City,65255.0,Timm Klose (65255),107.0,False
+40218,Sylvain Distin,AFC Bournemouth,3356.0,Sylvain Distin (3356),107.0,False
+4347,Jordan Amavi,Aston Villa,241229.0,Jordan Amavi (241229),107.0,False
+9638,Jack Grealish,Aston Villa,203460.0,Jack Grealish (203460),103.0,False
+4808,Andre Wisdom,Norwich City,128912.0,Andre Wisdom (128912),107.0,False
+9593,Lewis Grabban,AFC Bournemouth,35413.0,Lewis Grabban (35413),107.0,False
+3092,Dwight Gayle,Crystal Palace,196522.0,Dwight Gayle (196522),107.0,False
+3643,Phil Bardsley,Stoke City,15773.0,Phil Bardsley (15773),107.0,False
+3611,Kevin Wimmer,Tottenham Hotspur,122675.0,Kevin Wimmer (122675),107.0,False
+40127,Ryan Mason,Tottenham Hotspur,61834.0,Ryan Mason (61834),107.0,False
+10499,Ivo Daniel Ferreira Mendonca Pinto,Norwich City,82281.0,Ivo Pinto (82281),107.0,False
+3649,Karl Darlow,Newcastle United,99397.0,Karl Darlow (99397),107.0,False
+3722,Steven Taylor,Newcastle United,,,67.0,False
+15892,Jordon Mutch,Crystal Palace,57207.0,Jordon Mutch (57207),107.0,False
+3085,Glenn Murray,AFC Bournemouth,45693.0,Glenn Murray (45693),107.0,False
+3568,Mohamed Naser Elsayed Elneny,Arsenal,160438.0,Mohamed Elneny (160438),107.0,False
+9536,Modou Barrow,Swansea City,189070.0,Modou Barrow (189070),107.0,False
+27853,Mauro Matías Zárate,West Ham United,26456.0,Mauro Zárate (26456),98.0,False
+36983,Juan Carlos Paredes Reasco,Watford,100507.0,Juan Carlos Paredes (100507),103.0,False
+3616,Callum Wilson,AFC Bournemouth,123682.0,Callum Wilson (123682),107.0,False
+3708,Kelechi Promise Iheanacho,Manchester City,295330.0,Kelechi Iheanacho (295330),107.0,False
+4045,Leroy Fer,Swansea City,63342.0,Leroy Fer (63342),107.0,False
+4597,Fabian Delph,Manchester City,50362.0,Fabian Delph (50362),107.0,False
+13248,Eunan O''Kane,AFC Bournemouth,61583.0,eunan-okane,102.7,False
+8251,Marco van Ginkel,Stoke City,147034.0,Marco van Ginkel (147034),107.0,False
+23488,Mario Suárez Mata,Watford,37337.0,Mario Suárez (37337),107.0,False
+10931,Joe Allen,Liverpool,51452.0,Joe Allen (51452),107.0,False
+42701,Kieran Richardson,Aston Villa,3548.0,Kieran Richardson (3548),107.0,False
+11124,Steven Whittaker,Norwich City,12704.0,Steven Whittaker (12704),107.0,False
+9467,Timothy Michael Krul,Newcastle United,33027.0,Tim Krul (33027),107.0,False
+10779,Cameron Borthwick-Jackson,Manchester United,258879.0,Cameron Borthwick-Jackson (258879),107.0,False
+4747,Divock Okoth Origi,Liverpool,148368.0,Divock Origi (148368),107.0,False
+6950,Alberto Paloschi,Swansea City,68306.0,Alberto Paloschi (68306),107.0,False
+4417,Ola Toivonen,Sunderland,36500.0,Ola Toivonen (36500),103.0,False
+27053,Alexandre Dimitri Song-Billong,West Ham United,27394.0,Alex Song (27394),107.0,False
+28782,Ritchie De Laet,Leicester City,55687.0,Ritchie De Laet (55687),107.0,False
+43695,Brede Hangeland,Crystal Palace,,,55.4,False
+3619,Alex McCarthy,Crystal Palace,95976.0,Alex McCarthy (95976),107.0,False
+3647,Alex Iwobi,Arsenal,242631.0,Alex Iwobi (242631),107.0,False
+40124,Rickie Lambert,West Bromwich Albion,49655.0,Rickie Lambert (49655),107.0,False
+26699,Emmanuel Adebayor,Crystal Palace,8883.0,Emmanuel Adebayor (8883),107.0,False
+28100,Ramires Santos do Nascimento,Chelsea,54170.0,Ramires (54170),107.0,False
+3569,Daniel Nii Tackie Mensah Welbeck,Arsenal,67063.0,Danny Welbeck (67063),107.0,False
+16295,Dame N''Doye,Sunderland,,,68.5,False
+11992,Kevin Linford Stewart,Liverpool,200782.0,Kevin Stewart (200782),102.0,False
+3476,Muhamed Bešić,Everton,93905.0,Muhamed Besic (93905),107.0,False
+4840,Massadio Haïdara,Newcastle United,170929.0,Massadio Haïdara (170929),107.0,False
+3666,Robert Kenedy Nunes do Nascimento,Chelsea,281404.0,Kenedy (281404),107.0,False
+5617,Sebastian Larsson,Sunderland,31720.0,Sebastian Larsson (31720),107.0,False
+40366,Wes Brown,Sunderland,3405.0,Wes Brown (3405),107.0,False
+20066,Darren Randolph,West Ham United,51321.0,Darren Randolph (51321),107.0,False
+20253,Samir Nasri,Manchester City,18935.0,Samir Nasri (18935),103.0,False
+3314,Phil Jones,Manchester United,117996.0,Phil Jones (117996),107.0,False
+128704,Emmanuel Emenike,West Ham United,120630.0,Emmanuel Emenike (120630),107.0,False
+3310,Tom Carroll,Tottenham Hotspur,121279.0,Tom Carroll (121279),107.0,False
+3302,Nordin Amrabat,Watford,55619.0,Nordin Amrabat (55619),103.0,False
+24888,Adam Federici,AFC Bournemouth,4233.0,Adam Federici (4233),107.0,False
+6652,Jordi Amat Maas,Swansea City,85289.0,Jordi Amat (85289),107.0,False
+4040,Peter Crouch,Stoke City,4072.0,Peter Crouch (4072),107.0,False
+3308,Kieran Trippier,Tottenham Hotspur,95810.0,Kieran Trippier (95810),107.0,False
+3382,Luke Shaw,Manchester United,183288.0,Luke Shaw (183288),107.0,False
+8061,Siem Stefan de Jong,Newcastle United,45509.0,Siem de Jong (45509),103.0,False
+3495,Joe Gomez,Liverpool,256178.0,Joe Gomez (256178),107.0,False
+3254,Florian Thauvin,Newcastle United,184892.0,Florian Thauvin (184892),107.0,False
+4828,Adlène Guédioura,Watford,74768.0,Adlène Guédioura (74768),107.0,False
+10007,Jon Flanagan,Liverpool,145922.0,Jon Flanagan (145922),107.0,False
+3504,Ruben Loftus-Cheek,Chelsea,202886.0,Ruben Loftus-Cheek (202886),103.0,False
+41185,Jakob Haugaard,Stoke City,138335.0,Jakob Haugaard (138335),107.0,False
+13200,Oluwaseyi Babajide Ojo,Liverpool,236510.0,Sheyi Ojo (236510),103.0,False
+3326,Chung-Yong Lee,Crystal Palace,81801.0,Chung-yong Lee (81801),103.0,False
+3528,Kieran Gibbs,Arsenal,44792.0,Kieran Gibbs (44792),103.0,False
+3391,Rolando Aarons,Newcastle United,258188.0,Rolando Aarons (258188),103.0,False
+7121,Sandro Ranieri Guimarães Cordeiro,West Bromwich Albion,74590.0,Sandro (74590),104.0,False
+2956,Bertrand Isidore Traoré,Chelsea,131996.0,Bertrand Traoré (131996),107.0,False
+16932,Youssouf Chafiq Mulumbu Ngangu,Norwich City,45272.0,Youssouf Mulumbu (45272),107.0,False
+40130,Victor Chinedu Anichebe,West Bromwich Albion,39532.0,Victor Anichebe (39532),107.0,False
+9641,Fraizer Campbell,Crystal Palace,42411.0,Fraizer Campbell (42411),107.0,False
+4276,David Ospina Ramírez,Arsenal,73396.0,David Ospina (73396),107.0,False
+4892,Sergio Germán Romero,Manchester United,30690.0,Sergio Romero (30690),107.0,False
+10457,Patrick Bamford,Norwich City,183334.0,Patrick Bamford (183334),107.0,False
+4217,Danny Graham,Sunderland,29152.0,Danny Graham (29152),107.0,False
+9629,Stephen Kingsley,Swansea City,184398.0,Stephen Kingsley (184398),107.0,False
+43627,Jordi Gómez García-Penche,Sunderland,39010.0,Jordi Gómez (39010),107.0,False
+3685,Jay Rodriguez,Southampton,53360.0,Jay Rodríguez (53360),107.0,False
+20543,Nikica Jelavić,West Ham United,25742.0,Nikica Jelavic (25742),107.0,False
+3654,Daniel William John Ings,Liverpool,134294.0,Danny Ings (134294),107.0,False
+3713,Calum Chambers,Arsenal,215118.0,Calum Chambers (215118),103.0,False
+5264,Guillermo Varela Olivera,Manchester United,188862.0,Guillermo Varela (188862),107.0,False
+75899,Kevin Toner,Aston Villa,265132.0,Kevin Toner (265132),107.0,False
+9648,Paddy McNair,Manchester United,167268.0,Paddy McNair (167268),107.0,False
+3659,Wilfredo Daniel Caballero,Manchester City,19948.0,Willy Caballero (19948),102.0,False
+7884,Marcin Ryszard Wasilewski,Leicester City,,,60.0,False

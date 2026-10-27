@@ -1,0 +1,225 @@
+{
+  "global_metrics": {
+    "baseline_role_median": {
+      "n": 9015,
+      "mae": 0.9610734504973403,
+      "rmse": 1.203965159470128,
+      "r2": 0.006826884757597518,
+      "spearman": 0.08436532990576372
+    },
+    "ridge": {
+      "n": 9015,
+      "mae": 0.5419958390984301,
+      "rmse": 0.6961302424348426,
+      "r2": 0.6679693932404747,
+      "spearman": 0.8240059017254956
+    },
+    "lightgbm": {
+      "n": 9015,
+      "mae": 0.48774649186721963,
+      "rmse": 0.6225663211691344,
+      "r2": 0.734436513250129,
+      "spearman": 0.8550460229599516
+    }
+  },
+  "local_metrics": {
+    "baseline": {
+      "n": 285,
+      "mae": 0.5285051326579938,
+      "rmse": 0.6541068701212878,
+      "r2": 0.4946474932850973,
+      "spearman": 0.7073122698625488
+    },
+    "full": {
+      "n": 285,
+      "mae": 0.4455572323052922,
+      "rmse": 0.5713926945366876,
+      "r2": 0.614373944513916,
+      "spearman": 0.7849664660498287
+    }
+  },
+  "local_n": 285,
+  "local_backtest": [
+    {
+      "horizon_years": 1,
+      "n": 283,
+      "undervalued_n": 54,
+      "median_growth_undervalued": 0.0,
+      "median_growth_rest": 0.0,
+      "hit_rate_undervalued": 0.48148148148148145,
+      "hit_rate_rest": 0.36681222707423583
+    },
+    {
+      "horizon_years": 2,
+      "n": 279,
+      "undervalued_n": 53,
+      "median_growth_undervalued": 0.11778303565638346,
+      "median_growth_rest": -0.1093446004824147,
+      "hit_rate_undervalued": 0.5283018867924528,
+      "hit_rate_rest": 0.3584070796460177
+    },
+    {
+      "horizon_years": 3,
+      "n": 267,
+      "undervalued_n": 51,
+      "median_growth_undervalued": 0.10536051565782635,
+      "median_growth_rest": -0.26949825036634345,
+      "hit_rate_undervalued": 0.5098039215686274,
+      "hit_rate_rest": 0.35185185185185186
+    }
+  ],
+  "global_backtest": [
+    {
+      "season": "2013/14",
+      "n": 1783,
+      "undervalued_n": 355,
+      "median_growth_undervalued": 0.15415067982725836,
+      "median_growth_rest": -0.2876820724517809,
+      "hit_rate_undervalued": 0.5295774647887324,
+      "hit_rate_rest": 0.3011204481792717
+    },
+    {
+      "season": "2014/15",
+      "n": 1866,
+      "undervalued_n": 371,
+      "median_growth_undervalued": 0.0,
+      "median_growth_rest": -0.1823215567939546,
+      "hit_rate_undervalued": 0.38005390835579517,
+      "hit_rate_rest": 0.34782608695652173
+    },
+    {
+      "season": "2015/16",
+      "n": 1946,
+      "undervalued_n": 387,
+      "median_growth_undervalued": 0.1823215567939546,
+      "median_growth_rest": -0.2231435513142097,
+      "hit_rate_undervalued": 0.5555555555555556,
+      "hit_rate_rest": 0.35663887107119946
+    },
+    {
+      "season": "2016/17",
+      "n": 1982,
+      "undervalued_n": 394,
+      "median_growth_undervalued": 0.0,
+      "median_growth_rest": -0.13353139262452263,
+      "hit_rate_undervalued": 0.4619289340101523,
+      "hit_rate_rest": 0.3973551637279597
+    },
+    {
+      "season": "2017/18",
+      "n": 1994,
+      "undervalued_n": 397,
+      "median_growth_undervalued": -0.2231435513142097,
+      "median_growth_rest": -0.37729423114146804,
+      "hit_rate_undervalued": 0.3602015113350126,
+      "hit_rate_rest": 0.2748904195366312
+    },
+    {
+      "season": "2018/19",
+      "n": 1987,
+      "undervalued_n": 395,
+      "median_growth_undervalued": -0.5108256237659907,
+      "median_growth_rest": -0.5596157879354228,
+      "hit_rate_undervalued": 0.20506329113924052,
+      "hit_rate_rest": 0.1878140703517588
+    },
+    {
+      "season": "2019/20",
+      "n": 2046,
+      "undervalued_n": 407,
+      "median_growth_undervalued": -0.06453852113757118,
+      "median_growth_rest": -0.4700036292457356,
+      "hit_rate_undervalued": 0.44471744471744473,
+      "hit_rate_rest": 0.2605247101891397
+    },
+    {
+      "season": "2020/21",
+      "n": 2128,
+      "undervalued_n": 423,
+      "median_growth_undervalued": -0.3364722366212129,
+      "median_growth_rest": -0.5108256237659907,
+      "hit_rate_undervalued": 0.31678486997635935,
+      "hit_rate_rest": 0.23401759530791788
+    },
+    {
+      "season": "2021/22",
+      "n": 2170,
+      "undervalued_n": 432,
+      "median_growth_undervalued": -0.35667494393873245,
+      "median_growth_rest": -0.4462871026284195,
+      "hit_rate_undervalued": 0.2847222222222222,
+      "hit_rate_rest": 0.25604142692750287
+    },
+    {
+      "season": "2022/23",
+      "n": 2181,
+      "undervalued_n": 434,
+      "median_growth_undervalued": -0.40546510810816444,
+      "median_growth_rest": -0.4700036292457356,
+      "hit_rate_undervalued": 0.2857142857142857,
+      "hit_rate_rest": 0.2467086433886663
+    }
+  ],
+  "global_top_features": [
+    {
+      "feature": "club_rank",
+      "gain": 125941.32019429654,
+      "split": 1812
+    },
+    {
+      "feature": "age",
+      "gain": 70088.50960636884,
+      "split": 2856
+    },
+    {
+      "feature": "appearances",
+      "gain": 44976.174198910594,
+      "split": 1374
+    },
+    {
+      "feature": "starts",
+      "gain": 41866.425311885774,
+      "split": 1287
+    },
+    {
+      "feature": "goals_per_app",
+      "gain": 17120.806293152273,
+      "split": 1102
+    },
+    {
+      "feature": "assists_per_app",
+      "gain": 8802.716631129384,
+      "split": 958
+    },
+    {
+      "feature": "np_goals_per_app",
+      "gain": 5916.2296468243,
+      "split": 762
+    },
+    {
+      "feature": "injury_days_log",
+      "gain": 4020.800396949053,
+      "split": 1285
+    },
+    {
+      "feature": "sub_apps",
+      "gain": 3610.405632674694,
+      "split": 843
+    },
+    {
+      "feature": "league_ES1",
+      "gain": 3422.5633019804955,
+      "split": 297
+    },
+    {
+      "feature": "height",
+      "gain": 2602.3613605573773,
+      "split": 1496
+    },
+    {
+      "feature": "cards_per_app",
+      "gain": 2283.847725376487,
+      "split": 1398
+    }
+  ]
+}

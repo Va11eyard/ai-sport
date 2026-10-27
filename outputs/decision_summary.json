@@ -1,0 +1,122 @@
+{
+  "fit": {
+    "players": [
+      {
+        "need": "CB",
+        "display_name": "Ramiro Funes Mori",
+        "team_name": "Everton FC",
+        "market_value": 10000000.0,
+        "fit": 68.46,
+        "value": 60.0,
+        "safety": 82.07,
+        "score_w": 69.66
+      },
+      {
+        "need": "CM",
+        "display_name": "Idrissa Gueye",
+        "team_name": "Aston Villa",
+        "market_value": 9000000.0,
+        "fit": 95.26,
+        "value": 22.11,
+        "safety": 91.26,
+        "score_w": 87.35
+      },
+      {
+        "need": "ST",
+        "display_name": "Odion Ighalo",
+        "team_name": "Watford FC",
+        "market_value": 12000000.0,
+        "fit": 79.38,
+        "value": 82.5,
+        "safety": 95.63,
+        "score_w": 82.13
+      }
+    ],
+    "cost": 31000000.0,
+    "cost_m": 31.0,
+    "future_value_2y": 39500000.0,
+    "future_value_2y_m": 39.5,
+    "growth_2y_pct": 27.4,
+    "leftover": 19000000.0
+  },
+  "recommended": {
+    "players": [
+      {
+        "need": "CB",
+        "display_name": "Steve Cook",
+        "team_name": "AFC Bournemouth",
+        "market_value": 3000000.0,
+        "fit": 57.38,
+        "value": 100.0,
+        "safety": 95.68,
+        "score_w": 81.22
+      },
+      {
+        "need": "CM",
+        "display_name": "Idrissa Gueye",
+        "team_name": "Aston Villa",
+        "market_value": 9000000.0,
+        "fit": 95.26,
+        "value": 22.11,
+        "safety": 91.26,
+        "score_w": 79.03
+      },
+      {
+        "need": "ST",
+        "display_name": "Odion Ighalo",
+        "team_name": "Watford FC",
+        "market_value": 12000000.0,
+        "fit": 79.38,
+        "value": 82.5,
+        "safety": 95.63,
+        "score_w": 86.5
+      }
+    ],
+    "cost": 24000000.0,
+    "cost_m": 24.0,
+    "future_value_2y": 36500000.0,
+    "future_value_2y_m": 36.5,
+    "growth_2y_pct": 52.1,
+    "leftover": 26000000.0
+  },
+  "value": {
+    "players": [
+      {
+        "need": "CB",
+        "display_name": "Steve Cook",
+        "team_name": "AFC Bournemouth",
+        "market_value": 3000000.0,
+        "fit": 57.38,
+        "value": 100.0,
+        "safety": 95.68,
+        "score_w": 75.7
+      },
+      {
+        "need": "CM",
+        "display_name": "Francis Coquelin",
+        "team_name": "Arsenal FC",
+        "market_value": 12000000.0,
+        "fit": 81.05,
+        "value": 82.11,
+        "safety": 73.86,
+        "score_w": 79.88
+      },
+      {
+        "need": "ST",
+        "display_name": "Odion Ighalo",
+        "team_name": "Watford FC",
+        "market_value": 12000000.0,
+        "fit": 79.38,
+        "value": 82.5,
+        "safety": 95.63,
+        "score_w": 83.41
+      }
+    ],
+    "cost": 27000000.0,
+    "cost_m": 27.0,
+    "future_value_2y": 28500000.0,
+    "future_value_2y_m": 28.5,
+    "growth_2y_pct": 5.6,
+    "leftover": 23000000.0
+  }
+}

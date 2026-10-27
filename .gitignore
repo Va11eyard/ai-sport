@@ -1,0 +1,27 @@
+# raw data
+data/raw/
+# generated model binaries
+outputs/*.joblib
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+# node and next
+node_modules/
+.next/
+coverage/
+# local
+.env
+.env.*
+.DS_Store
+*.zip
+*.tsbuildinfo
+next-env.d.ts
+# streamlit local state
+.streamlit/secrets.toml
+
+# inspection previews
+report/preview/
+presentation/preview/
+*.part

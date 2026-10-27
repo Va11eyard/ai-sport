@@ -1,0 +1,4 @@
+GitHub repository: https://github.com/Va11eyard/ai-sport (branch dev)
+Report: Assignment5_Report.pdf
+Slides: Assignment5_Presentation.pdf
+App: python -m streamlit run app.py

@@ -1,0 +1,51 @@
+Assignment 5 verification
+
+StatsBomb matches: 380
+StatsBomb players: 548
+Player-match rows: 10,385
+Market player-seasons: 30,939
+
+Global model (holdout 2021/22 to 2024/25)
+  baseline_role_median   MAE 0.961  R2 0.007  Spearman 0.084
+  ridge                  MAE 0.542  R2 0.668  Spearman 0.824
+  lightgbm               MAE 0.488  R2 0.734  Spearman 0.855
+
+Local model (5-fold out-of-fold, 2015/16 Premier League)
+  baseline               MAE 0.529  R2 0.495  Spearman 0.707
+  full                   MAE 0.446  R2 0.614  Spearman 0.785
+
+Local backtest
+ horizon_years   n  undervalued_n  median_growth_undervalued  median_growth_rest  hit_rate_undervalued  hit_rate_rest
+             1 283             54                      0.000               0.000                 0.481          0.367
+             2 279             53                      0.118              -0.109                 0.528          0.358
+             3 267             51                      0.105              -0.269                 0.510          0.352
+
+Candidate pool
+need
+CB    13
+CM    19
+ST     8
+
+Base optimizer
+  cost EUR 27.0m, score 238.98, leftover EUR 23.0m
+  brute force score 238.98, match True
+
+Recommended plan
+  CB Steve Cook         AFC Bournemouth    EUR 3.0m
+  CM Idrissa Gueye      Aston Villa        EUR 9.0m
+  ST Odion Ighalo       Watford FC         EUR 12.0m
+  total EUR 24.0m, 2-year value EUR 36.5m, growth +52.1%
+
+Scenarios
+       scenario  feasible  cost_m  leftover_m      score                                                                                          players
+           base      True    27.0        23.0 238.981064        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
+    value_first      True    27.0        23.0 248.339667        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
+  quality_first      True    31.0        19.0 239.128871 CB: José Ramiro Funes Mori (10.0m); CM: Idrissa Gana Gueye (9.0m); ST: Odion Jude Ighalo (12.0m)
+   safety_first      True    24.0        26.0 246.756568              CB: Steve Cook (3.0m); CM: Idrissa Gana Gueye (9.0m); ST: Odion Jude Ighalo (12.0m)
+budget_minus_20      True    27.0        13.0 238.981064        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
+budget_minus_40      True    27.0         3.0 238.981064        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
+   youth_policy      True    42.0         8.0 193.672562        CB: Chancel Mbemba Mangulu (10.0m); CM: Emre Can (18.0m); ST: Aleksandar Mitrović (14.0m)
+    risk_averse      True    27.0        23.0 238.981064        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
+
+report/Assignment5_Report.pdf: missing
+presentation/Assignment5_Presentation.pdf: missing
