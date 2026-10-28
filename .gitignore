@@ -28,3 +28,6 @@ presentation/preview/
 
 # design previews
 site/preview/
+
+# generated pages build
+/build/
