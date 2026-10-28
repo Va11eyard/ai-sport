@@ -106,8 +106,8 @@ def build_blocks() -> Blocks:
         subtitle="From data to transfer decisions",
         assignment="Assignment 5",
         case="Replacing N'Golo Kanté at Leicester City, summer 2016",
-        author="Dinmukhammed Mynzhassar, AAI-2504M",
-        team="Team members: ______________________________",
+        author="Dinmukhammed Mynzhassar, Laura Duisenova, Zhaidar Kairat",
+        team="AAI-2504M",
         date="October 2026",
         strip=[
             ("Decision", "Sign Gueye, Cook and Ighalo for EUR 24m"),

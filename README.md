@@ -4,6 +4,8 @@
 
 Assignment 5, AAI-2504M, October 2026
 
+Team: Dinmukhammed Mynzhassar, Laura Duisenova, Zhaidar Kairat
+
 Leicester City, summer 2016. Replace N'Golo Kanté, rebuild the spine and stay inside a EUR 50m fee budget.
 
 ## The decision
@@ -51,7 +53,8 @@ Kanté was a 100th percentile ball winner and only a 54th percentile passer amon
 | `outputs/tables/` | Candidate, model, scenario and decision tables |
 | `outputs/figures/` | Report and slide figures |
 | `report/` | DOCX and PDF report |
-| `presentation/` | 11-slide PDF deck |
+| `presentation/` | 11-slide PDF deck and speaker script |
+| `presentation/SPEAKER_SCRIPT.md` | Per-speaker script and Q&A bank |
 | `demo/` | Screenshots and demo script |
 | `site/` | Static project page built with the landing page design system |
 | `assets/` | Manrope font, license and shared design tokens |
@@ -102,12 +105,13 @@ Nine unit tests cover counts, model improvement over the baseline, leakage contr
 
 ## AI use
 
-An LLM coding assistant was used for code scaffolding, event-schema checks, debugging and drafting. It was given the data schemas, the case constraints and the cutoff rule. It did not generate the reported numbers. All tables and figures come from the committed scripts. The author checked the player mapping, the model specification and the recommendation.
+An LLM coding assistant was used for code scaffolding, event-schema checks, debugging and drafting. It was given the data schemas, the case constraints and the cutoff rule. It did not generate the reported numbers. All tables and figures come from the committed scripts. The team checked the player mapping, the model specification and the recommendation.
 
 ## Links
 
 - Repository branch: `dev` of [github.com/Va11eyard/ai-sport](https://github.com/Va11eyard/ai-sport)
-- Project page: `site/index.html`
+- Project page source: `site/index.html`
+- Speaker script: `presentation/SPEAKER_SCRIPT.md`
 - Report: `report/Assignment5_Report.pdf`
 - Slides: `presentation/Assignment5_Presentation.pdf`
 
