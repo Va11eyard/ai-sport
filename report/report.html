@@ -1,22 +1,23 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>Assignment 5</title><style>
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Assignment 5</title><link rel='stylesheet' href='../assets/design.css'><style>
 
     @page { size: A4; margin: 22mm 18mm 18mm; }
     * { box-sizing: border-box; }
-    body { font-family: "Segoe UI", Calibri, sans-serif; color: #111111; margin: 0; font-size: 10.5pt; line-height: 1.45; }
+    body { font-family: var(--font); color: #111111; margin: 0; font-size: 10pt; line-height: 1.45; }
     .page { padding: 0; }
     h1 { font-size: 17pt; margin: 18pt 0 6pt; border-bottom: 1px solid #bbbbbb; padding-bottom: 4pt; page-break-after: avoid; }
     h2 { font-size: 12.5pt; margin: 13pt 0 4pt; page-break-after: avoid; }
     p { margin: 0 0 7pt; text-align: justify; }
     ul { margin: 3pt 0 8pt 18pt; padding: 0; }
     li { margin-bottom: 4pt; }
-    table { width: 100%; border-collapse: collapse; margin: 7pt 0 10pt; font-size: 8.4pt; page-break-inside: auto; }
-    th { background: #e6e6e6; border: 1px solid #999999; padding: 4pt; text-align: left; font-weight: bold; }
-    td { border: 1px solid #bbbbbb; padding: 3.5pt; vertical-align: top; }
-    tr { page-break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; margin: 6pt 0 8pt; font-size: 8pt; page-break-inside: avoid; break-inside: avoid; }
+    th { background: #e6e6e6; border: 1px solid #999999; padding: 3.5pt; text-align: left; font-weight: bold; }
+    td { border: 1px solid #bbbbbb; padding: 3pt; vertical-align: top; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    .table-block { page-break-inside: avoid; break-inside: avoid; }
     figure { margin: 10pt 0; page-break-inside: avoid; text-align: center; }
     figure img { width: 100%; max-width: 100%; }
-    figcaption { font-size: 8.5pt; color: #555555; font-style: italic; margin-top: 3pt; text-align: left; }
-    .caption { font-size: 8.5pt; color: #555555; font-style: italic; margin: 2pt 0 10pt; }
+    figcaption { font-size: 8pt; color: #555555; margin-top: 3pt; text-align: left; }
+    .caption { font-size: 8pt; color: #555555; margin: 2pt 0 8pt; }
     .cover { min-height: 165mm; padding: 18mm 4mm 0; page-break-after: always; }
     .cover h1 { font-size: 33pt; border: none; margin: 0 0 8pt; padding: 0; }
     .cover .sub { font-size: 18pt; color: #333333; margin-bottom: 26pt; }
@@ -64,18 +65,19 @@
 <h2>Sources and coverage</h2>
 <p>The project combines event-level match data with market data. StatsBomb open data provides the 2015/16 Premier League season: 380 matches, 10,385 player-match rows and 548 players. Each match file contains every pass, carry, shot, pressure, tackle, interception, clearance and recovery with coordinates and pressure flags. Lineups provide formation slots and minutes.</p>
 <p>The Transfermarkt datalake provides 92,671 player profiles, 901,429 market value observations, 1,878,719 player-season performance rows, 1,101,440 transfer records and injury histories. For the market model the analysis uses the top five leagues from 2010/11 to 2024/25, giving 30,939 player-seasons with a market value and at least five appearances. The case cutoff is 1 July 2016. Market values are in euros.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Source</th><th>What it provides</th><th>Scale</th><th>Use</th></tr></thead><tbody>
 <tr><td>StatsBomb open data</td><td>Premier League 2015/16 events and lineups</td><td>380 matches, 10,385 player-match rows, 548 players</td><td>Real match style, Kanté profile, local value model, candidate fit</td></tr>
 <tr><td>Transfermarkt datalake</td><td>Profiles, market values, performances, transfers, injuries</td><td>92,671 profiles, 901,429 values, 1.88m performance rows, 1.1m transfers</td><td>Global value model, case values, fees proxy, risk</td></tr>
 <tr><td>Analysis cohort</td><td>Top five leagues, 2010/11 to 2024/25</td><td>30,939 player-seasons</td><td>Market model training and temporal validation</td></tr>
 </tbody></table>
 <div class='caption'>Table 1: Data sources and scale</div>
+</div>
 <h2>Preparation and matching</h2>
 <p>The raw data is not committed to the repository because the event files alone are about 1.1 GB. The download script recreates it from public URLs, and the processed tables are committed so the app runs offline. Market value at the cutoff is the latest observation on or before 1 July 2016, with a maximum staleness of 550 days. Season end values use 1 July of the following year.</p>
 <p>Player matching between StatsBomb and Transfermarkt uses normalized names, club mapping, position group and nationality, with rapidfuzz scores and manual checks. Of 421 StatsBomb players with at least 300 minutes, 408 are mapped. The 13 low-confidence matches are rejected rather than forced. All shortlisted players and the Leicester squad were checked by hand. The candidate pool requires at least 1,500 minutes, which excludes players whose per-90 rates are unstable.</p>
 <p>Two data quality problems shaped the method. First, the Transfermarkt minutes column is unreliable for some high scorers: Harry Kane is listed with 135 minutes and 25 goals, Jamie Vardy with 131 minutes and 24 goals. The column behaves like minutes per goal in those rows. The local model therefore uses StatsBomb minutes, and the global model avoids minutes entirely and uses appearances and starts. Second, some 2015/16 profiles are missing from the datalake, including Charlie Daniels, Daryl Janmaat and Lee Cattermole. The matching keeps only verified players, and the report states that the candidate pool is a sample of the league, not a complete market.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Check</th><th>Result</th><th>Action</th></tr></thead><tbody>
 <tr><td>StatsBomb matches</td><td>380 of 380</td><td>Full season used</td></tr>
 <tr><td>Leicester matches</td><td>38</td><td>Club style and Kanté actions</td></tr>
@@ -85,6 +87,7 @@
 <tr><td>Market cohort</td><td>30,939 player-seasons</td><td>Top five leagues, 2010/11 to 2024/25</td></tr>
 </tbody></table>
 <div class='caption'>Table 2: Coverage and validation checks</div>
+</div>
 <h1>3. What Leicester were</h1>
 <p>The style analysis uses the full season, not a highlight reel. Leicester had 42.6% possession against a league average of 50.0%, completed 68.0% of passes against 75.4%, and played 23.4% of passes long against 19.8%. They created 1.74 xG per match against a league average of 1.28 and conceded 1.21 against 1.28. Counterattacks produced 9.2% of their xG against 5.7% for the league, and set pieces produced 15.1% against 7.1%. This was a low-possession, direct, set-piece-heavy and counterattacking team.</p>
 <figure><img src='../outputs/figures/leicester_style.png'><figcaption>Figure 1: Leicester 2015/16 style fingerprint, in standard deviations from the league average. Raw values are shown next to each label.</figcaption></figure>
@@ -95,18 +98,19 @@
 <p>A k-means clustering of all outfield players with 900+ minutes, using ball winning, pressing, progression, shooting, box presence, clearing and passing security, produces six readable roles. Kanté sits in the ball winning and pressing cluster. The cluster map is a descriptive check, not the decision model. It shows that the candidate pool contains players with genuinely different functions, and that a formation label alone is not enough.</p>
 <figure><img src='../outputs/figures/cluster_map.png'><figcaption>Figure 4: Role clusters from real match actions, projected on two principal components. Selected players are highlighted.</figcaption></figure>
 <h2>The three needs</h2>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Need</th><th>Why</th><th>Required profile</th><th>Pool</th></tr></thead><tbody>
 <tr><td>Central midfield</td><td>Kanté leaves after 3,019 minutes</td><td>Elite ball winning, pressing, carries, Premier League readiness</td><td>19 players</td></tr>
 <tr><td>Centre back</td><td>Huth is 32 and Morgan is 32</td><td>Clearances, blocks, aerial duels, enough passing to escape the block</td><td>13 players</td></tr>
 <tr><td>Centre forward</td><td>Vardy is 29 and Okazaki is 30</td><td>Box threat, shots, xG, pressing, affordable fee</td><td>8 players</td></tr>
 </tbody></table>
 <div class='caption'>Table 3: The three squad needs and the candidate pool</div>
+</div>
 <div class='pagebreak'></div>
 <h1>4. Replacing Kanté</h1>
 <p>The midfield fit score is built in two steps. First, ten per-90 metrics for each midfielder are standardized within the candidate pool: ball winning, pressures, progressive passes, progressive carries, pass completion, recoveries, tackles, interceptions, xG and shots. The cosine similarity between a candidate and Kanté is computed on that vector. Second, the similarity is combined with minutes and pass completion: 75% similarity, 15% minutes and 10% pass completion. The weights are explicit and can be changed in the app.</p>
 <p>Gueye is the closest match at 0.93 cosine. Jan Kirchhoff is second at 0.75, Victor Wanyama third at 0.70 and Francis Coquelin fourth at 0.68. Aaron Ramsey, listed by the data as a left defensive midfielder, has a similarity of about zero. That is a useful warning: formation labels are not roles. Ramsey is a box-to-box and attacking midfielder, not a Kanté replacement, and the similarity score captures it.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Need</th><th>Player</th><th>Club</th><th>Age</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th><th>Score</th><th>Role cluster</th></tr></thead><tbody>
 <tr><td>CM</td><td>Francis Coquelin</td><td>Arsenal FC</td><td>25.1</td><td>EUR 12.0m</td><td>81</td><td>82</td><td>74</td><td>80</td><td>Ball winning + Pressing</td></tr>
 <tr><td>CM</td><td>Idrissa Gueye</td><td>Aston Villa</td><td>26.8</td><td>EUR 9.0m</td><td>95</td><td>22</td><td>91</td><td>76</td><td>Ball winning + Pressing</td></tr>
@@ -125,42 +129,46 @@
 <tr><td>ST</td><td>Christian Benteke</td><td>Liverpool FC</td><td>25.6</td><td>EUR 27.0m</td><td>72</td><td>40</td><td>55</td><td>61</td><td>Aerial duels + Box presence</td></tr>
 </tbody></table>
 <div class='caption'>Table 4: Top five candidates per need after the filters. Fit, value and safety are 0 to 100 percentiles. Score uses the balanced weights 0.55 fit, 0.25 value and 0.20 safety.</div>
+</div>
 <p>The differences inside the midfield group are instructive. Coquelin has the best balanced score (79.9) because his market gap is large and his profile is still close to Kanté. Gueye has the best fit (95.3) but the weakest value score (22.1), because the market already prices his defensive output. Wanyama sits between them. The final choice depends on what the club is trying to buy: a bargain, a tactical facsimile or a robust portfolio.</p>
 <h1>5. Market value models</h1>
 <h2>Global model</h2>
 <p>The global model predicts log market value relative to the league-season median. The target removes inflation and league level: a player is priced against peers in the same league and season. Features are age, appearances, starts, substitute appearances, goals and assists per appearance, non-penalty goals, cards, injury days, height, club rank, league, position group, role and foot. Market value itself is never a feature. The model is trained on seasons up to 2020/21 and tested on 2021/22 to 2024/25, giving 9,015 held-out player-seasons.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Model</th><th>MAE, log</th><th>RMSE, log</th><th>R2</th><th>Spearman</th></tr></thead><tbody>
 <tr><td>Role median baseline</td><td>0.961</td><td>1.204</td><td>0.007</td><td>0.084</td></tr>
 <tr><td>Ridge regression</td><td>0.542</td><td>0.696</td><td>0.668</td><td>0.824</td></tr>
 <tr><td>LightGBM</td><td>0.488</td><td>0.623</td><td>0.734</td><td>0.855</td></tr>
 </tbody></table>
 <div class='caption'>Table 5: Global market value model, holdout seasons 2021/22 to 2024/25</div>
+</div>
 <p>The LightGBM model reduces the log error from 0.961 to 0.488 and raises R2 from 0.007 to 0.734. The rank correlation is 0.855. The largest gains come from club rank, age, appearances, starts and goals per appearance. The model is strong but not surprising: club reputation and playing time dominate market value. That is exactly why the residual is interesting only when a player&#x27;s profile is unusual.</p>
 <figure><img src='../outputs/figures/value_parity.png'><figcaption>Figure 5: Actual and predicted log value relative to the league median. Left: global model on future seasons. Right: local model on 2015/16 with out-of-fold predictions.</figcaption></figure>
 <h2>Local model</h2>
 <p>The local model uses the 2015/16 Premier League cross-section and real match actions. It predicts the same relative log value from 31 event features, age, minutes, starts and club rank. The model is a ridge regression with standardized features and five-fold out-of-fold predictions. The baseline uses only age, minutes, starts, role and club rank. The full model adds passes, completion, progression, carries, xG, xA, box touches, pressures, tackles, interceptions, blocks, clearances, recoveries, aerial losses, dribbles, turnovers, fouls and line height.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Local model</th><th>MAE, log</th><th>R2</th><th>Spearman</th><th>n</th></tr></thead><tbody>
 <tr><td>Baseline</td><td>0.529</td><td>0.495</td><td>0.707</td><td>285</td></tr>
 <tr><td>Full event model</td><td>0.446</td><td>0.614</td><td>0.785</td><td>285</td></tr>
 </tbody></table>
 <div class='caption'>Table 6: Local 2015/16 market value model, five-fold out-of-fold predictions</div>
+</div>
 <p>The event model improves R2 from 0.495 to 0.614 and reduces the log error from 0.529 to 0.446. Pass volume and pass completion have the largest positive coefficients. Pressures and recoveries have negative coefficients once position, minutes and club rank are controlled. In other words, the market pays for passing and attacking output more than for defensive actions. That is a market bias, not a football verdict, and it explains why Gueye can be the best tactical fit and still receive a negative value gap.</p>
 <p>Leakage controls are explicit. The target is the market value at the end of the 2015/16 season. All features are known during the season. No future value, transfer fee, contract outcome or 2016 to 2018 information enters the model. The global model is tested on future seasons. The case model is trained on seasons up to 2014/15 when it scores 2015/16. The local model uses out-of-fold predictions, so no player&#x27;s own value is used to predict himself.</p>
 <div class='pagebreak'></div>
 <h1>6. Is the undervalued signal real</h1>
 <p>The value gap is the difference between the log market value and the model prediction. A player with a positive gap is cheaper than similar players. The local backtest flags the bottom 20% of residuals within each position group as undervalued and follows their market value for one, two and three years. Only players with a positive future value are included, and the attrition is reported.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Horizon</th><th>n</th><th>Undervalued</th><th>Median growth, undervalued</th><th>Median growth, rest</th><th>Hit rate, undervalued</th><th>Hit rate, rest</th></tr></thead><tbody>
 <tr><td>1 year</td><td>283</td><td>54</td><td>+0.0%</td><td>+0.0%</td><td>48.1%</td><td>36.7%</td></tr>
 <tr><td>2 years</td><td>279</td><td>53</td><td>+11.8%</td><td>-10.9%</td><td>52.8%</td><td>35.8%</td></tr>
 <tr><td>3 years</td><td>267</td><td>51</td><td>+10.5%</td><td>-26.9%</td><td>51.0%</td><td>35.2%</td></tr>
 </tbody></table>
 <div class='caption'>Table 7: Local undervaluation backtest, 2015/16 Premier League cohort</div>
+</div>
 <p>At two years the undervalued group gained 11.8% in median market value, while the rest lost 10.9%. The hit rate was 52.8% against 35.8%. At three years the gap widened: +10.5% against -26.9%. At one year both medians were flat, which is consistent with a slow-moving market. The signal is not a guarantee. It is a modest edge in a noisy market.</p>
 <p>The global model provides a second test across seasons. For each evaluation season, the model is trained on all earlier seasons and the bottom 20% of residuals within each position group are followed for two years. The undervalued group beat the rest in all 10 evaluation seasons on a relative basis. Absolute market values fell in several seasons, especially after 2018/19, so the correct claim is relative: the flagged players lost less value, and in some seasons gained more.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Season</th><th>n</th><th>Undervalued</th><th>Growth, undervalued</th><th>Growth, rest</th><th>Gap</th><th>Hit rate, undervalued</th><th>Hit rate, rest</th></tr></thead><tbody>
 <tr><td>2013/14</td><td>1783</td><td>355</td><td>+15.4%</td><td>-28.8%</td><td>+44.2%</td><td>53.0%</td><td>30.1%</td></tr>
 <tr><td>2014/15</td><td>1866</td><td>371</td><td>+0.0%</td><td>-18.2%</td><td>+18.2%</td><td>38.0%</td><td>34.8%</td></tr>
@@ -174,6 +182,7 @@
 <tr><td>2022/23</td><td>2181</td><td>434</td><td>-40.5%</td><td>-47.0%</td><td>+6.5%</td><td>28.6%</td><td>24.7%</td></tr>
 </tbody></table>
 <div class='caption'>Table 8: Global undervaluation backtest, two-year horizon, expanding window</div>
+</div>
 <figure><img src='../outputs/figures/backtest_uplift.png'><figcaption>Figure 6: The local two-year gap and the global season-by-season gap. The global model is positive in relative terms in all 10 evaluation seasons.</figcaption></figure>
 <p>The value gap is a signal, not a target. The market can be wrong about a player for reasons the model cannot see: a contract clause, a club&#x27;s need, an injury that is not in the data, or a tactical role that changes after the transfer. The decision model therefore treats value as one input, not as the answer.</p>
 <h1>7. Shortlist and scoring</h1>
@@ -185,7 +194,7 @@
 <p>The plan is a binary optimisation. Each candidate is a binary variable. The constraints require exactly one player for each of the three needs, total fees at or below the budget, risk at or below the limit and age at or below the policy. The objective maximises the weighted score. The problem is small enough to solve exactly with a MILP solver, and an independent brute-force check over the top eight candidates per need reproduces the optimum.</p>
 <p>The scenario table changes the preference weights and the constraints. The base scenario uses the balanced weights. The value-first scenario raises the value weight to 0.45. The quality-first scenario raises fit to 0.75. The safety-first scenario raises safety to 0.40. The budget is cut by 20% and 40%, the age limit falls to 24, and a risk-averse scenario caps risk at 45.</p>
 <div class='pagebreak'></div>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Scenario</th><th>Budget, EUR m</th><th>Cost, EUR m</th><th>Left, EUR m</th><th>Score</th><th>Selected plan</th></tr></thead><tbody>
 <tr><td>Base</td><td>50</td><td>27.0</td><td>23.0</td><td>239.0</td><td>Cook, Coquelin, Ighalo</td></tr>
 <tr><td>Value first</td><td>50</td><td>27.0</td><td>23.0</td><td>248.3</td><td>Cook, Coquelin, Ighalo</td></tr>
@@ -197,18 +206,20 @@
 <tr><td>Risk averse</td><td>50</td><td>27.0</td><td>23.0</td><td>239.0</td><td>Cook, Coquelin, Ighalo</td></tr>
 </tbody></table>
 <div class='caption'>Table 9: Budget and preference scenarios. All plans satisfy the budget and fill at least one need.</div>
+</div>
 <p>The base plan is Coquelin, Cook and Ighalo for EUR 27m. The value-first weights select the same plan, because Coquelin&#x27;s market gap is large. The quality-first weights move the midfield to Gueye and the centre back to Funes Mori, for EUR 31m. The safety-first weights select the recommended plan: Gueye, Cook and Ighalo for EUR 24m. The youth policy selects Mbemba, Emre Can and Mitrovic for EUR 42m. The budget cuts still fit the base plan at EUR 30m, which is a sign that the recommendation is not fragile to a 40% budget cut.</p>
 <p>Sensitivity to the weights is transparent. With safety fixed at 0.20 and fit rising from 0.30 to 0.80, Coquelin is selected until fit reaches 0.55, Gueye enters at 0.60, and Funes Mori replaces Cook at 0.70. Ighalo is selected in every scenario. The stable core is the striker and the value defender; the midfield is the genuine judgement call.</p>
 <div class='pagebreak'></div>
 <h1>9. Decision</h1>
 <p>The recommendation is Idrissa Gueye, Steve Cook and Odion Ighalo for EUR 24m. This is the safety-first optimum: 0.40 fit, 0.20 value and 0.40 safety. It is appropriate for a club that has just lost a unique midfielder and cannot afford a failed replacement. The plan fills all three needs, leaves EUR 26m for wages, agent fees and a January buffer, and keeps the age profile young enough to retain resale value.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Need</th><th>Player</th><th>Club</th><th>Age</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th><th>Weighted score</th></tr></thead><tbody>
 <tr><td>CB</td><td>Steve Cook</td><td>AFC Bournemouth</td><td>25.2</td><td>EUR 3.0m</td><td>57</td><td>100</td><td>96</td><td>81.2</td></tr>
 <tr><td>CM</td><td>Idrissa Gueye</td><td>Aston Villa</td><td>26.8</td><td>EUR 9.0m</td><td>95</td><td>22</td><td>91</td><td>79.0</td></tr>
 <tr><td>ST</td><td>Odion Ighalo</td><td>Watford FC</td><td>27.0</td><td>EUR 12.0m</td><td>79</td><td>82</td><td>96</td><td>86.5</td></tr>
 </tbody></table>
 <div class='caption'>Table 10: Recommended plan, safety-first weights</div>
+</div>
 <figure><img src='../outputs/figures/shortlist.png'><figcaption>Figure 8: The recommended plan. Fit, value and safety are percentiles. The bar labels show the score for each dimension.</figcaption></figure>
 <h2>Why these three</h2>
 <ul>
@@ -220,7 +231,7 @@
 <p>Coquelin is the value alternative in midfield: EUR 12m, fit 81, value 82, safety 74. He is a more conservative passer than Gueye and less similar to Kanté, but the market gap is much larger. Van Dijk is the premium alternative in defence: EUR 12m, fit 57, value 83, safety 95. He offers more progressive passing and a higher ceiling than Cook, but the model does not separate them enough on fit to justify the extra EUR 9m in the recommended plan. Deeney is the cheaper forward alternative: EUR 9m, fit 55, value 80, safety 95. He is a better link player than Ighalo but less of a pure box threat.</p>
 <p>A board that wants a higher ceiling can replace Cook with van Dijk for EUR 33m in total, or replace Gueye with Coquelin for EUR 27m. A board that wants to preserve cash can keep the recommended plan at EUR 24m. The scenarios show that the striker and the value defender are stable; the midfield is the decision that changes with the weights.</p>
 <h2>Risks and mitigations</h2>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Risk</th><th>Why it matters</th><th>Mitigation</th></tr></thead><tbody>
 <tr><td>Gueye&#x27;s passing</td><td>He is a safe short passer but not a creative progressor</td><td>Keep Drinkwater as the passer, use Gueye as the destroyer, train the first phase</td></tr>
 <tr><td>Cook&#x27;s step up</td><td>Bournemouth defended deep and conceded chances</td><td>Pair him with a progressive partner, start him as the third centre back or rotate</td></tr>
@@ -229,20 +240,22 @@
 <tr><td>Injury and suspension</td><td>The plan relies on three starters</td><td>Keep the EUR 26m buffer for January</td></tr>
 </tbody></table>
 <div class='caption'>Table 11: Risks and mitigations for the recommended plan</div>
+</div>
 <h2>What happened next</h2>
 <p>The market values after 2016 are a backtest, not a promise. Gueye rose from EUR 9m to EUR 20m, Cook from EUR 3m to EUR 7m, and Ighalo fell from EUR 12m to EUR 9.5m. The plan&#x27;s total value rose from EUR 24m to EUR 36.5m, a gain of 52%. The value plan rose only 5.6%, and the fit plan rose 27.4%. Two hits and one miss is a realistic result for a three-player plan, and the report does not hide it.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Player</th><th>Value 2016</th><th>Value 2017</th><th>Value 2018</th><th>Growth 2016 to 2018</th></tr></thead><tbody>
 <tr><td>Steve Cook</td><td>EUR 3.0m</td><td>EUR 5.0m</td><td>EUR 7.0m</td><td>+84.7%</td></tr>
 <tr><td>Idrissa Gueye</td><td>EUR 9.0m</td><td>EUR 18.0m</td><td>EUR 20.0m</td><td>+79.9%</td></tr>
 <tr><td>Odion Ighalo</td><td>EUR 12.0m</td><td>EUR 7.0m</td><td>EUR 9.5m</td><td>-23.4%</td></tr>
 </tbody></table>
 <div class='caption'>Table 12: What happened next for the recommended plan, used as a validation only</div>
+</div>
 <p>The outcome supports the method but does not prove it. Gueye&#x27;s rise validates the fit-first view of the midfield. Cook&#x27;s rise validates the value signal. Ighalo&#x27;s fall validates the risk warning. A different three-player plan would have produced a different story, which is why the report shows the alternatives and the scenario table.</p>
 <div class='pagebreak'></div>
 <h1>10. Quality control and limitations</h1>
 <p>The assignment asks for at least two potential errors or limitations. This project treats ten as part of the method, not as a disclaimer at the end. Each one changed a modelling or interpretation choice.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Pitfall</th><th>What happened in this project</th><th>Effect on the method</th></tr></thead><tbody>
 <tr><td>Data leakage</td><td>Future market values and transfer fees could leak into the value model</td><td>Target is the season-end value; features are known during the season; the global model is tested on future seasons; the case model is trained on seasons up to 2014/15</td></tr>
 <tr><td>Insufficient playing time</td><td>Per-90 rates after a few matches are unstable</td><td>The candidate pool requires 1,500 minutes; the local model uses 900+ minutes; safety penalises low availability</td></tr>
@@ -256,6 +269,7 @@
 <tr><td>Retrospective design</td><td>The outcomes are known to the author</td><td>The recommendation uses only pre-cutoff information; outcomes are used only for validation</td></tr>
 </tbody></table>
 <div class='caption'>Table 13: Pitfalls, evidence and methodological response</div>
+</div>
 <p>The most serious data issue is the Transfermarkt minutes column. Harry Kane is listed with 135 minutes and 25 goals, Jamie Vardy with 131 minutes and 24 goals. The column behaves like minutes per goal in those rows, not total minutes. Using it directly would have inflated per-90 rates for the best scorers and distorted the value model. The local model uses StatsBomb minutes. The global model uses appearances and starts instead of minutes. This is a concrete example of why source validation matters.</p>
 <p>The second serious issue is position labels. StatsBomb positions are formation slots. Ramsey is listed as a left defensive midfielder but plays as a box-to-box and attacking midfielder. The similarity score corrects the label, but a simpler model that trusted the label would have recommended the wrong profile. The role clusters are a check on this, not a replacement for watching the player.</p>
 <p>The third issue is market bias. The local model shows that the market pays for passing and attacking output and discounts defensive actions once position and possession are controlled. A negative value gap for Gueye is therefore not evidence that he is a bad player. It is evidence that the market does not pay for his main skill. The final decision uses fit and availability, not only the market gap.</p>
@@ -266,7 +280,7 @@
 <h1>12. Reproducibility</h1>
 <p>The repository contains the code, the processed tables and the figures. Raw data is downloaded by script and is not committed. The app runs offline from the processed tables. The report and slides are generated from the same outputs, so the numbers agree across formats.</p>
 <p>Commands: python scripts/download_data.py, then python scripts/build_all.py, then python scripts/verify.py, then python -m streamlit run app.py. The test suite has 9 tests. The independent brute-force check reproduces the MILP optimum. The report build script writes the DOCX and the HTML, and Playwright prints the PDF.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Path</th><th>Content</th></tr></thead><tbody>
 <tr><td>src/transfer_lab/</td><td>Parsing, features, value models, scouting, optimisation, figures</td></tr>
 <tr><td>scripts/download_data.py</td><td>Public raw data download</td></tr>
@@ -280,9 +294,10 @@
 <tr><td>presentation/</td><td>Slide deck</td></tr>
 </tbody></table>
 <div class='caption'>Table 14: Repository structure</div>
+</div>
 <div class='pagebreak'></div>
 <h1>Appendix A. Metric definitions</h1>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Metric</th><th>Definition</th></tr></thead><tbody>
 <tr><td>Ball winning per 90</td><td>Tackles, interceptions and recoveries per 90 minutes</td></tr>
 <tr><td>Pressure per 90</td><td>StatsBomb Pressure and Counterpress events per 90 minutes</td></tr>
@@ -297,9 +312,10 @@
 <tr><td>Safety</td><td>100 minus a risk score built from availability, injury days, age and cards</td></tr>
 </tbody></table>
 <div class='caption'>Table A1: Metric definitions</div>
+</div>
 <div class='pagebreak'></div>
 <h1>Appendix B. Candidate tables</h1>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Player</th><th>Club</th><th>Age</th><th>Minutes</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th><th>Score</th></tr></thead><tbody>
 <tr><td>Francis Coquelin</td><td>Arsenal FC</td><td>25.1</td><td>1721</td><td>EUR 12.0m</td><td>81</td><td>82</td><td>74</td><td>80</td></tr>
 <tr><td>Idrissa Gueye</td><td>Aston Villa</td><td>26.8</td><td>3073</td><td>EUR 9.0m</td><td>95</td><td>22</td><td>91</td><td>76</td></tr>
@@ -311,8 +327,9 @@
 <tr><td>Harry Arter</td><td>AFC Bournemouth</td><td>26.5</td><td>1666</td><td>EUR 1.5m</td><td>51</td><td>100</td><td>44</td><td>62</td></tr>
 </tbody></table>
 <div class='caption'>Table B1: Top eight central midfield candidates, balanced score</div>
+</div>
 <div class='pagebreak'></div>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Player</th><th>Club</th><th>Age</th><th>Minutes</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th><th>Score</th></tr></thead><tbody>
 <tr><td>Steve Cook</td><td>AFC Bournemouth</td><td>25.2</td><td>3195</td><td>EUR 3.0m</td><td>57</td><td>100</td><td>96</td><td>76</td></tr>
 <tr><td>Virgil van Dijk</td><td>Southampton FC</td><td>25.0</td><td>3060</td><td>EUR 12.0m</td><td>57</td><td>83</td><td>95</td><td>71</td></tr>
@@ -324,8 +341,9 @@
 <tr><td>Chris Smalling</td><td>Manchester United</td><td>26.6</td><td>3150</td><td>EUR 20.0m</td><td>41</td><td>60</td><td>92</td><td>56</td></tr>
 </tbody></table>
 <div class='caption'>Table B2: Top eight centre back candidates, balanced score</div>
+</div>
 <div class='pagebreak'></div>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Player</th><th>Club</th><th>Age</th><th>Minutes</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th><th>Score</th></tr></thead><tbody>
 <tr><td>Odion Ighalo</td><td>Watford FC</td><td>27.0</td><td>3149</td><td>EUR 12.0m</td><td>79</td><td>82</td><td>96</td><td>83</td></tr>
 <tr><td>Troy Deeney</td><td>Watford FC</td><td>28.0</td><td>3292</td><td>EUR 9.0m</td><td>55</td><td>80</td><td>95</td><td>69</td></tr>
@@ -337,9 +355,10 @@
 <tr><td>Rudy Gestede</td><td>Aston Villa</td><td>27.7</td><td>1664</td><td>EUR 7.0m</td><td>39</td><td>30</td><td>77</td><td>45</td></tr>
 </tbody></table>
 <div class='caption'>Table B3: Top eight centre forward candidates, balanced score</div>
+</div>
 <h1>Appendix C. Scenario and sensitivity tables</h1>
 <p>The full scenario table is in Table 9. The sensitivity table below holds safety at 0.20 and moves the fit weight from 0.30 to 0.80. The selected striker is always Ighalo. The selected defender is Cook until fit reaches 0.70, when Funes Mori takes over. The midfielder switches from Coquelin to Gueye at a fit weight of 0.60.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Fit weight</th><th>Value weight</th><th>CM</th><th>CB</th><th>ST</th><th>Cost, EUR m</th></tr></thead><tbody>
 <tr><td>0.30</td><td>0.50</td><td>Francis Joseph Coquelin</td><td>Steve Cook</td><td>Odion Jude Ighalo</td><td>27.0</td></tr>
 <tr><td>0.35</td><td>0.45</td><td>Francis Joseph Coquelin</td><td>Steve Cook</td><td>Odion Jude Ighalo</td><td>27.0</td></tr>
@@ -354,10 +373,11 @@
 <tr><td>0.80</td><td>0.00</td><td>Idrissa Gana Gueye</td><td>José Ramiro Funes Mori</td><td>Odion Jude Ighalo</td><td>31.0</td></tr>
 </tbody></table>
 <div class='caption'>Table C1: Weight sensitivity</div>
+</div>
 <div class='pagebreak'></div>
 <h1>Appendix D. Verification output</h1>
 <p>The full command output is saved in outputs/verification.txt. The key checks are summarized below. Run python scripts/verify.py to reproduce them.</p>
-<table>
+<div class='table-block'><table>
 <thead><tr><th>Check</th><th>Result</th></tr></thead><tbody>
 <tr><td>StatsBomb matches</td><td>380</td></tr>
 <tr><td>StatsBomb player-match rows</td><td>10,385</td></tr>
@@ -369,4 +389,5 @@
 <tr><td>Unit tests</td><td>9 passed</td></tr>
 </tbody></table>
 <div class='caption'>Table D1: Verification summary</div>
+</div>
 </body></html>

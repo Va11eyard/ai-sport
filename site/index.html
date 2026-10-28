@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transfer Decision Lab | Leicester 2016 case study</title>
+  <meta name="description" content="A transfer decision system built on 380 real matches, two market models and a EUR 50m budget. The Leicester City 2016 case.">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta property="og:title" content="Transfer Decision Lab">
+  <meta property="og:description" content="Replace Kanté without losing the identity. A transfer decision system built on real match data.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../demo/screenshots/01_decision.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf">
+  <link rel="stylesheet" href="../assets/design.css">
+  <noscript><style>[data-reveal] {opacity: 1 !important; transform: none !important;} .tagline-text .word {opacity: 1 !important;} .menu {display: none !important;} .nav-links {position: static; display: flex; flex-wrap: wrap;}</style></noscript>
+  <style>
+    :root {
+      --paper: #f7f5f0;
+      --paper-2: #fbfaf7;
+      --card: #fffdf9;
+      --ink: #111111;
+      --ink-soft: #333333;
+      --muted: #625d54;
+      --line: #d9d3c7;
+      --line-soft: #e9e4da;
+      --dark: #181818;
+      --dark-2: #1f1f1f;
+      --dark-line: #3a3a3a;
+      --font: "Manrope", "Segoe UI", sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--ink); text-underline-offset: 4px; }
+    h1, h2, h3 { margin: 0; letter-spacing: -0.02em; text-wrap: balance; font-weight: 700; }
+    h1 { font-size: 60px; line-height: 1.04; max-width: 680px; }
+    h2 { font-size: 36px; line-height: 1.1; margin-bottom: 16px; }
+    h3 { font-size: 24px; line-height: 1.2; margin-bottom: 8px; }
+    p { margin: 0 0 16px; text-wrap: pretty; }
+    .container { width: min(1120px, calc(100% - 64px)); margin: 0 auto; }
+    .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 8px; z-index: 100; }
+    .skip:focus { top: 16px; }
+
+    .nav-wrap { position: fixed; top: 16px; left: 0; right: 0; z-index: 30; pointer-events: none; }
+    .nav {
+      pointer-events: auto;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 10px 12px 10px 18px;
+      background: rgba(247, 245, 240, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .brand-mark { width: 28px; height: 28px; display: grid; place-items: center; background: var(--ink); color: #fff; border-radius: 8px; font-size: 11px; letter-spacing: 0.04em; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; }
+    .nav-links a { text-decoration: none; color: var(--ink-soft); transition: color 300ms var(--ease); }
+    .nav-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+    .nav-cta { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; background: var(--card); }
+    .menu { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); position: relative; cursor: pointer; }
+    .menu span { position: absolute; left: 11px; right: 11px; height: 2px; background: var(--ink); transition: transform 300ms var(--ease), opacity 300ms var(--ease); }
+    .menu span:nth-child(1) { top: 15px; }
+    .menu span:nth-child(2) { top: 23px; }
+
+    .hero { padding: 160px 0 80px; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+    .sub { font-size: 20px; line-height: 1.5; color: var(--ink-soft); max-width: 600px; margin-top: 18px; }
+    .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: 8px; background: var(--ink); color: #fff;
+      font-size: 16px; font-weight: 700; text-decoration: none; border: 1px solid var(--ink);
+      transition: background 300ms var(--ease), transform 300ms var(--ease);
+    }
+    .button:hover { background: var(--ink-soft); }
+    .button:active { transform: translateY(1px); }
+    .text-link { font-size: 16px; font-weight: 700; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .proof-row { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 32px; }
+    .proof-row div { min-width: 120px; }
+    .proof-row b { display: block; font-size: 30px; line-height: 1.1; }
+    .proof-row span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .hero-card { background: var(--dark); color: #f5f5f5; border: 1px solid var(--dark); border-radius: 16px; padding: 24px; }
+    .hero-card-head { display: flex; justify-content: space-between; gap: 16px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #b8b8b8; padding-bottom: 16px; border-bottom: 1px solid var(--dark-line); }
+    .hero-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 4px 12px; padding: 16px 0; border-bottom: 1px solid var(--dark-line); align-items: baseline; }
+    .hero-row .role { font-size: 11px; letter-spacing: 0.1em; color: #b8b8b8; }
+    .hero-row b { font-size: 20px; }
+    .hero-row .club { grid-column: 2; font-size: 13px; color: #b8b8b8; }
+    .hero-row strong { grid-column: 3; grid-row: 1 / span 2; font-size: 24px; }
+    .hero-total { padding-top: 18px; }
+    .hero-total span { display: block; font-size: 13px; color: #b8b8b8; }
+    .hero-total b { display: block; font-size: 40px; line-height: 1.05; margin: 2px 0 4px; }
+
+    .section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+    .section-soft { background: var(--paper-2); }
+    .section-dark { background: var(--dark); color: #f5f5f5; }
+    .section-dark h2, .section-dark h3 { color: #fff; }
+    .section-dark p { color: #d6d6d6; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .split-wide { grid-template-columns: 0.85fr 1.15fr; }
+    .section-lede { font-size: 20px; line-height: 1.5; color: var(--ink-soft); max-width: 760px; }
+    .section-dark .section-lede { color: #d6d6d6; }
+
+    .stat-stack { display: grid; gap: 12px; }
+    .stat-card { border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 20px 24px; }
+    .stat-card b { display: block; font-size: 36px; line-height: 1.05; }
+    .stat-card span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .section-dark .stat-card { border-color: var(--dark-line); background: var(--dark-2); }
+    .section-dark .stat-card span { color: #b8b8b8; }
+
+    .cards { display: grid; gap: 16px; margin-top: 32px; }
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .card { border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 24px; }
+    .card .tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .card h3 { margin-top: 8px; }
+    .card p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 0; }
+
+    .figure { margin: 32px 0 0; border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 8px; }
+    .figure img { border-radius: 8px; }
+    .figure figcaption { font-size: 13px; line-height: 1.45; color: var(--muted); padding: 10px 4px 2px; }
+    .figure-light { background: #fff; border-color: var(--dark-line); }
+
+    .steps { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
+    .steps li { counter-increment: step; border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 24px; }
+    .steps li::before { content: "0" counter(step); display: block; font-size: 12px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
+    .steps h3 { font-size: 20px; }
+    .steps p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
+    .tagline { background: var(--paper); padding: 96px 0; border-bottom: 1px solid var(--line); }
+    .tagline-text { font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 700; max-width: 900px; margin: 0; }
+    .tagline-text .word { opacity: 0.28; transition: opacity 700ms var(--ease); }
+    .tagline-text .word.in { opacity: 1; }
+
+    .plan-grid { display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 16px; margin-top: 32px; align-items: stretch; }
+    .plan-wrap { border: 1px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; }
+    table.plan { width: 100%; border-collapse: collapse; font-size: 16px; }
+    table.plan th { background: #f1ede5; text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--line); }
+    table.plan td { padding: 14px 16px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+    table.plan tr:last-child td { border-bottom: 0; }
+    table.plan td b { display: block; font-size: 16px; }
+    table.plan td span { display: block; font-size: 14px; color: var(--muted); }
+    .plan-summary { background: var(--dark); color: #fff; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+    .plan-summary b { display: block; font-size: 48px; line-height: 1; }
+    .plan-summary span { display: block; font-size: 14px; color: #b8b8b8; margin-top: 6px; }
+    .plan-summary .small { color: #b8b8b8; font-size: 14px; line-height: 1.45; margin-top: 24px; }
+
+    .faq { max-width: 840px; margin-top: 32px; }
+    details { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 16px 20px; margin-bottom: 8px; }
+    summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-weight: 700; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+
+    .final-cta { background: var(--dark); color: #fff; padding: 96px 0; }
+    .final-cta h2 { color: #fff; max-width: 760px; }
+    .final-cta p { color: #d6d6d6; max-width: 720px; }
+    .final-cta .button { background: #fff; color: var(--ink); border-color: #fff; margin-top: 8px; }
+    .final-cta .button:hover { background: #e9e4da; }
+    .final-cta code { display: inline-block; background: #1f1f1f; border: 1px solid var(--dark-line); border-radius: 8px; padding: 4px 8px; color: #fff; font-family: var(--font); font-size: 15px; }
+    .final-cta .small { color: #b8b8b8; font-size: 14px; line-height: 1.5; margin-top: 16px; }
+
+    footer { background: var(--paper); padding: 32px 0; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    .footer-grid p { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; }
+    .footer-links a { color: var(--ink-soft); }
+
+    [data-reveal] { opacity: 0; transform: translateY(32px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+    [data-reveal].in { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 48px; }
+      h2 { font-size: 30px; }
+      .hero { padding-top: 140px; }
+      .hero-grid, .split, .split-wide, .plan-grid { grid-template-columns: 1fr; }
+      .cards.three, .steps { grid-template-columns: 1fr; }
+      .nav { background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .nav-links { position: fixed; inset: 0; z-index: 1; display: none; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; padding: 96px 32px 32px; background: var(--paper); border: 0; border-radius: 0; font-size: 24px; }
+      .nav-open .nav-links { display: flex; }
+      .nav-links a { opacity: 0; transform: translateY(24px); animation: linkIn 500ms var(--ease) forwards; }
+      .nav-open .nav-links a:nth-child(1) { animation-delay: 60ms; }
+      .nav-open .nav-links a:nth-child(2) { animation-delay: 120ms; }
+      .nav-open .nav-links a:nth-child(3) { animation-delay: 180ms; }
+      .nav-open .nav-links a:nth-child(4) { animation-delay: 240ms; }
+      .nav-open .nav-links a:nth-child(5) { animation-delay: 300ms; }
+      .nav-open .nav-links a:nth-child(6) { animation-delay: 360ms; }
+      .menu { display: block; position: relative; z-index: 2; }
+      .nav-open .menu span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+      .nav-open .menu span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+      body.menu-open { overflow: hidden; }
+      .tagline-text { font-size: 40px; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .container { width: calc(100% - 40px); }
+      h1 { font-size: 38px; }
+      h2 { font-size: 28px; }
+      .sub, .section-lede { font-size: 18px; }
+      .proof-row { gap: 20px; }
+      .proof-row b { font-size: 24px; }
+      .tagline-text { font-size: 32px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+    }
+    @keyframes linkIn { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      [data-reveal], .tagline-text .word { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .nav-links a { opacity: 1; transform: none; animation: none; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="brand-mark">TD</span><span>Transfer Decision Lab</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#problem">Problem</a>
+        <a href="#system">System</a>
+        <a href="#decision">Decision</a>
+        <a href="#proof">Proof</a>
+        <a href="#questions">Questions</a>
+        <a class="nav-cta" href="../report/Assignment5_Report.pdf">Report</a>
+      </div>
+      <button class="menu" id="menu" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <p class="eyebrow">Assignment 5 | AI Football Intelligence</p>
+          <h1>Replace Kanté without losing the identity</h1>
+          <p class="sub">Leicester City, summer 2016. A transfer decision system built on 380 real matches, two market models and a EUR 50m budget.</p>
+          <div class="hero-actions">
+            <a class="button" href="../report/Assignment5_Report.pdf">Read the transfer report</a>
+            <a class="text-link" href="../presentation/Assignment5_Presentation.pdf">See the 11 slides</a>
+          </div>
+          <div class="proof-row">
+            <div><b>380</b><span>real matches parsed</span></div>
+            <div><b>30,939</b><span>player seasons priced</span></div>
+            <div><b>0.734</b><span>global R2 on future seasons</span></div>
+          </div>
+        </div>
+        <aside class="hero-card" data-reveal aria-label="Recommended transfer plan">
+          <div class="hero-card-head"><span>Recommended plan</span><span>Summer 2016</span></div>
+          <div class="hero-row"><span class="role">CM</span><b>Idrissa Gueye</b><span class="club">Aston Villa</span><strong>EUR 9m</strong></div>
+          <div class="hero-row"><span class="role">CB</span><b>Steve Cook</b><span class="club">AFC Bournemouth</span><strong>EUR 3m</strong></div>
+          <div class="hero-row"><span class="role">ST</span><b>Odion Ighalo</b><span class="club">Watford</span><strong>EUR 12m</strong></div>
+          <div class="hero-total"><span>Total fees</span><b>EUR 24m</b><span>EUR 26m left for wages and a January buffer</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container split">
+        <div data-reveal>
+          <p class="eyebrow">The problem</p>
+          <h2>A title winning team lost its engine</h2>
+          <p>Leicester won the league with 42.6% possession and the lowest pass completion in the division. N'Golo Kanté played 3,019 minutes, won the ball 17.1 times per 90 and ranked in the 100th percentile for tackles, interceptions and recoveries. He then left for Chelsea.</p>
+          <p>The club had to replace the work, not the highlight reel. A playmaker would have changed the shape. The team needed a midfielder who could cover ground, win the ball back and carry it forward.</p>
+        </div>
+        <div class="stat-stack" data-reveal>
+          <div class="stat-card"><b>3,019</b><span>minutes in the title season</span></div>
+          <div class="stat-card"><b>17.1</b><span>ball wins per 90</span></div>
+          <div class="stat-card"><b>100th</b><span>percentile for tackles, interceptions and recoveries</span></div>
+        </div>
+      </div>
+      <div class="container">
+        <figure class="figure" data-reveal>
+          <img src="../outputs/figures/kante_actions.png" alt="Maps of Kanté's defensive actions and progressive passes and carries across 37 matches" width="2509" height="931">
+          <figcaption>Kanté across 37 matches. Left: 1,594 defensive actions. Right: 545 progressive passes and carries.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="system">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">The system</p>
+          <h2>What the system does</h2>
+          <p class="section-lede">It turns event data into three scores and a budget plan. Every number is traceable to a script in the repository.</p>
+        </div>
+        <div class="cards three">
+          <article class="card" data-reveal>
+            <span class="tag">Fit</span>
+            <h3>Kanté similarity</h3>
+            <p>Ten actions per 90, compared with the player who left. Formation labels are not roles. The score catches the difference.</p>
+          </article>
+          <article class="card" data-reveal>
+            <span class="tag">Value</span>
+            <h3>Two market models</h3>
+            <p>A player is priced against peers in the same league and season. The global model learns from 30,939 player seasons.</p>
+          </article>
+          <article class="card" data-reveal>
+            <span class="tag">Plan</span>
+            <h3>One budget, three needs</h3>
+            <p>A binary optimiser fills central midfield, centre back and centre forward under a fee budget, a risk limit and an age policy.</p>
+          </article>
+        </div>
+        <h3 style="margin-top:48px" data-reveal>How it works</h3>
+        <ol class="steps">
+          <li data-reveal>
+            <h3>Parse the matches</h3>
+            <p>380 Premier League games. Every pass, carry, shot, pressure and defensive action, with coordinates and pressure flags.</p>
+          </li>
+          <li data-reveal>
+            <h3>Price the market</h3>
+            <p>Global LightGBM and local Ridge models. The global model is tested on future seasons. The local model uses five fold out of fold predictions.</p>
+          </li>
+          <li data-reveal>
+            <h3>Choose the plan</h3>
+            <p>Fit, value and safety. One player per need. The exact optimum is checked against a brute force search.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="tagline" aria-label="Core idea">
+      <div class="container">
+        <p class="tagline-text" data-words>Every transfer trades fit against value and risk.</p>
+      </div>
+    </section>
+
+    <section class="section" id="decision">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">The decision</p>
+          <h2>EUR 24m for three needs</h2>
+          <p class="section-lede">The recommended plan is a portfolio, not a ranking. It fills all three needs and leaves EUR 26m for wages, agent fees and a January buffer.</p>
+        </div>
+        <div class="plan-grid">
+          <div class="plan-wrap" data-reveal>
+            <table class="plan">
+              <thead>
+                <tr><th>Need</th><th>Player</th><th>Fee</th><th>Fit</th><th>Value</th><th>Safety</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><b>Central midfield</b><span>Replace Kanté</span></td><td><b>Idrissa Gueye</b><span>Aston Villa</span></td><td>EUR 9m</td><td>95</td><td>22</td><td>91</td></tr>
+                <tr><td><b>Centre back</b><span>Succession for Huth and Morgan</span></td><td><b>Steve Cook</b><span>AFC Bournemouth</span></td><td>EUR 3m</td><td>57</td><td>100</td><td>96</td></tr>
+                <tr><td><b>Centre forward</b><span>Competition for Vardy</span></td><td><b>Odion Ighalo</b><span>Watford</span></td><td>EUR 12m</td><td>79</td><td>82</td><td>96</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <aside class="plan-summary" data-reveal>
+            <div>
+              <b>EUR 24m</b><span>total fees</span>
+              <b style="margin-top:24px">EUR 26m</b><span>left for wages and a January buffer</span>
+            </div>
+            <p class="small">Gueye is the closest profile to Kanté. Cook is the value signal. Ighalo is the box threat. The value model does not call Gueye a bargain, and the page says so.</p>
+          </aside>
+        </div>
+        <figure class="figure" data-reveal>
+          <img src="../demo/screenshots/01_decision.png" alt="Decision screen of the Transfer Decision Lab showing Idrissa Gueye, Steve Cook and Odion Ighalo" width="1440" height="1000">
+          <figcaption>The Streamlit app. Change the budget, risk, age or weights and the plan updates.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="proof">
+      <div class="container split split-wide">
+        <div data-reveal>
+          <p class="eyebrow" style="color:#b8b8b8">Proof, not a promise</p>
+          <h2>Checked, not hidden</h2>
+          <p class="section-lede">The value signal is modest. The report shows the backtest, the baseline and the cases where the method misses.</p>
+          <div class="stat-stack">
+            <div class="stat-card"><b>+11.8%</b><span>undervalued group, two year market value change</span></div>
+            <div class="stat-card"><b>-10.9%</b><span>the rest, two year market value change</span></div>
+            <div class="stat-card"><b>52.8%</b><span>hit rate, against 35.8% for the rest</span></div>
+            <div class="stat-card"><b>10 of 10</b><span>seasons where the undervalued group beat the rest on a relative basis</span></div>
+          </div>
+        </div>
+        <figure class="figure figure-light" data-reveal>
+          <img src="../outputs/figures/backtest_uplift.png" alt="Bar charts of the two year market value backtest for the local and global models" width="2528" height="958">
+          <figcaption>The local two year gap and the global season by season gap. Absolute values fell in several seasons. The claim is relative.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">Questions</p>
+          <h2>Questions a sporting director should ask</h2>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Why Leicester in 2016?</summary>
+            <p>The season has full event data and two more years of market values. A current shortlist would have no observable outcome. The retrospective design makes the method testable.</p>
+          </details>
+          <details>
+            <summary>Why not just buy the most expensive player?</summary>
+            <p>Price is not fit. The model separates what the market pays from what the team needs. A player can be expensive and wrong, or cheap and right for the role.</p>
+          </details>
+          <details>
+            <summary>Why Gueye if the value model does not call him cheap?</summary>
+            <p>The market underprices defensive actions. Gueye is the closest real match replacement and the plan can afford him. Cook carries the value case. The report states the difference between market value and club utility.</p>
+          </details>
+          <details>
+            <summary>How was the model checked?</summary>
+            <p>A temporal holdout for the global model, five fold out of fold predictions for the local model, a two year market value backtest and a brute force check of the optimiser. Nine tests pass.</p>
+          </details>
+          <details>
+            <summary>What can go wrong?</summary>
+            <p>One league of event data, market value as a fee proxy, a retrospective case and noisy residuals. Ighalo is the clearest individual risk. The plan keeps a EUR 26m buffer for that reason.</p>
+          </details>
+          <details>
+            <summary>Can I run the app?</summary>
+            <p>Yes. The README has the three commands. The app reads the processed tables and runs offline. The report and the slides are separate PDFs in the repository.</p>
+          </details>
+          <details>
+            <summary>Where does the data come from?</summary>
+            <p>StatsBomb open data for the 2015/16 Premier League and a Transfermarkt datalake for profiles, market values, performances, transfers and injuries. The report cites both sources.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="read">
+      <div class="container">
+        <p class="eyebrow" style="color:#b8b8b8">The full argument</p>
+        <h2>Read the report. Check the scripts.</h2>
+        <p>23 pages. Eight figures. Every table and figure comes from the code in the repository.</p>
+        <a class="button" href="../report/Assignment5_Report.pdf">Read the transfer report</a>
+        <p class="small">Or run the app from the project folder:<br><code>python -m streamlit run app.py</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <p><b>Transfer Decision Lab</b><br>Assignment 5, AAI-2504M, October 2026.<br>Data: StatsBomb open data and a Transfermarkt datalake.</p>
+      </div>
+      <div>
+        <p><b>No cookies. No analytics.</b><br>Every number is generated by the committed scripts.</p>
+      </div>
+      <div class="footer-links">
+        <a href="../report/Assignment5_Report.pdf">Report</a>
+        <a href="../presentation/Assignment5_Presentation.pdf">Slides</a>
+        <a href="../README.md">README</a>
+        <a href="https://github.com/Va11eyard/ai-sport">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector(".nav");
+    const menu = document.getElementById("menu");
+    const links = document.querySelectorAll(".nav-links a");
+    menu.addEventListener("click", () => {
+      const open = nav.classList.toggle("nav-open");
+      menu.setAttribute("aria-expanded", String(open));
+      menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("menu-open", open);
+    });
+    links.forEach((link) => link.addEventListener("click", () => {
+      nav.classList.remove("nav-open");
+      menu.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-label", "Open menu");
+      document.body.classList.remove("menu-open");
+    }));
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if (reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => el.classList.add("in"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+      reveals.forEach((el) => io.observe(el));
+    }
+
+    const tagline = document.querySelector("[data-words]");
+    if (tagline) {
+      const words = tagline.textContent.trim().split(/\s+/);
+      tagline.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(" ");
+      if (reduced || !("IntersectionObserver" in window)) {
+        tagline.querySelectorAll(".word").forEach((word) => word.classList.add("in"));
+      } else {
+        const wordObserver = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            tagline.querySelectorAll(".word").forEach((word, index) => {
+              window.setTimeout(() => word.classList.add("in"), index * 70);
+            });
+            wordObserver.disconnect();
+          }
+        }, { threshold: 0.35 });
+        wordObserver.observe(tagline);
+      }
+    }
+  </script>
+</body>
+</html>

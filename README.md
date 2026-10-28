@@ -20,10 +20,14 @@ Gueye is the closest real-match profile to Kanté. Cook is the strongest value s
 
 ![Decision screen](demo/screenshots/01_decision.png)
 
+[Open the project page](site/index.html)
+
+![Project page](demo/screenshots/landing_hero.png)
+
 ## Key evidence
 
 - 380 Premier League matches and 10,385 player-match rows from StatsBomb open data.
-- 30,939 top-five league player-seasons from a Transfermarkt datalake.
+- 30,939 top five league player seasons from a Transfermarkt datalake.
 - Global market value model: R2 0.734, Spearman 0.855 on 2021/22 to 2024/25.
 - Local event model: R2 0.614 against 0.495 for a baseline that knows age, minutes, role and club rank.
 - Undervalued players gained 11.8% in market value over two years, while the rest lost 10.9%.
@@ -49,6 +53,8 @@ Kanté was a 100th percentile ball winner and only a 54th percentile passer amon
 | `report/` | DOCX and PDF report |
 | `presentation/` | 11-slide PDF deck |
 | `demo/` | Screenshots and demo script |
+| `site/` | Static project page built with the landing page design system |
+| `assets/` | Manrope font, license and shared design tokens |
 | `upload/` | Submission copies of the report and slides |
 
 ## Run it
@@ -101,6 +107,7 @@ An LLM coding assistant was used for code scaffolding, event-schema checks, debu
 ## Links
 
 - Repository branch: `dev` of [github.com/Va11eyard/ai-sport](https://github.com/Va11eyard/ai-sport)
+- Project page: `site/index.html`
 - Report: `report/Assignment5_Report.pdf`
 - Slides: `presentation/Assignment5_Presentation.pdf`
 

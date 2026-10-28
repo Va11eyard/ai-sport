@@ -63,7 +63,7 @@ def build() -> str:
         <p class="author">Dinmukhammed Mynzhassar, AAI-2504M</p>
         <div class="stats">
           {stat("380", "real matches parsed")}
-          {stat("30,939", "player-seasons priced")}
+          {stat("30,939", "player seasons priced")}
           {stat("3", "signings recommended")}
         </div>
       </div>
@@ -86,7 +86,7 @@ def build() -> str:
       <div class="card"><div class="tag">CB</div><h2>Steve Cook</h2><p class="club">AFC Bournemouth</p><p class="fee">EUR 3m</p><p class="small">Value 100 | Safety 96</p></div>
       <div class="card"><div class="tag">ST</div><h2>Odion Ighalo</h2><p class="club">Watford</p><p class="fee">EUR 12m</p><p class="small">Fit 79 | Value 82</p></div>
     </div>
-    <div class="bottom-line"><span>EUR 50m budget</span><span>EUR 26m left for wages and a January buffer</span><span>Two-year value backtest: +52%</span></div>
+    <div class="bottom-line"><span>EUR 50m budget</span><span>EUR 26m left for wages and a January buffer</span><span>Two year value backtest: +52%</span></div>
     <p class="small">The case for Gueye is tactical fit, not a bargain. The money is made on Cook. Ighalo is the best available box threat.</p>
     """
     slides.append(slide("The decision", "Replace Kanté without losing the identity", decision_body, 2, dark=True))
@@ -96,7 +96,7 @@ def build() -> str:
     <div class="stats four">
       {stat("380", "Premier League matches")}
       {stat("10,385", "player-match rows")}
-      {stat("30,939", "top-five player-seasons")}
+      {stat("30,939", "top five player seasons")}
       {stat("1.1m", "transfer records")}
     </div>
     <div class="pipeline">
@@ -257,18 +257,18 @@ def build() -> str:
     @page { size: 13.333in 7.5in; margin: 0; }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: #ffffff; }
-    body { font-family: "Segoe UI", Calibri, sans-serif; color: #111111; }
+    body { font-family: var(--font); color: #111111; }
     .slide { width: 13.333in; height: 7.5in; padding: 0.38in 0.55in 0.42in; position: relative; page-break-after: always; overflow: hidden; background: #ffffff; }
-    .slide.dark { background: #111111; color: #f5f5f5; }
+    .slide.dark { background: #181818; color: #f5f5f5; }
     .kicker { display: flex; justify-content: space-between; font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border-bottom: 1px solid #d8d8d8; padding-bottom: 5px; }
-    .dark .kicker { color: #aaaaaa; border-color: #444444; }
-    h1 { font-size: 38pt; line-height: 1.02; margin: 14pt 0 8pt; letter-spacing: -0.02em; max-width: 11.8in; }
+    .dark .kicker { color: #aaaaaa; border-color: #3a3a3a; }
+    h1 { font-size: 36pt; line-height: 1.04; margin: 14pt 0 8pt; letter-spacing: -0.01em; max-width: 11.8in; text-wrap: balance; font-weight: 700; }
     h2 { font-size: 16pt; margin: 0 0 3pt; }
     .lede { font-size: 15pt; line-height: 1.28; color: #333333; max-width: 10.8in; }
     .dark .lede { color: #dddddd; }
     .body { margin-top: 8pt; }
     .footer { position: absolute; left: 0.55in; right: 0.55in; bottom: 0.18in; display: flex; justify-content: space-between; font-size: 8pt; color: #777777; border-top: 1px solid #dddddd; padding-top: 4px; }
-    .dark .footer { color: #999999; border-color: #444444; }
+    .dark .footer { color: #999999; border-color: #3a3a3a; }
     .small { font-size: 10pt; color: #555555; line-height: 1.35; }
     .dark .small { color: #bbbbbb; }
     .caption { font-size: 8pt; color: #666666; margin-top: 2pt; }
@@ -279,15 +279,15 @@ def build() -> str:
     .stats { display: flex; gap: 0.22in; margin-top: 14pt; flex-wrap: wrap; }
     .stats.four { margin-top: 10pt; }
     .stats.two { margin-top: 0; margin-bottom: 12pt; }
-    .stat { border-left: 3px solid #111111; padding-left: 8pt; min-width: 1.3in; }
+    .stat { border: 1px solid #d8d8d8; border-radius: 12px; background: #f7f7f7; padding: 10px 12px; min-width: 1.4in; }
     .stat b { display: block; font-size: 22pt; font-weight: 700; line-height: 1; }
     .stat span { display: block; font-size: 9pt; color: #555555; margin-top: 3pt; }
-    .dark .stat { border-color: #f5f5f5; }
+    .dark .stat { border-color: #3a3a3a; background: #1f1f1f; }
     .dark .stat span { color: #bbbbbb; }
     .cards { display: grid; gap: 0.18in; margin: 12pt 0; }
     .cards.three { grid-template-columns: repeat(3, 1fr); }
-    .card { border: 1px solid #bbbbbb; background: #f7f7f7; padding: 12pt 14pt; min-height: 1.6in; }
-    .dark .card { background: #1c1c1c; border-color: #555555; }
+    .card { border: 1px solid #d8d8d8; border-radius: 12px; background: #f7f7f7; padding: 12pt 14pt; min-height: 1.6in; }
+    .dark .card { background: #1f1f1f; border-color: #3a3a3a; }
     .tag { font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; }
     .card h2 { font-size: 19pt; margin-top: 4pt; }
     .club { font-size: 10pt; color: #555555; margin: 0; }
@@ -295,10 +295,10 @@ def build() -> str:
     .dark .tag { color: #aaaaaa; }
     .fee { font-size: 20pt; font-weight: 700; margin: 8pt 0 0; }
     .big-line { font-size: 30pt; font-weight: 700; line-height: 1.1; margin: 18pt 0 8pt; max-width: 11.8in; }
-    .bottom-line { display: flex; gap: 0.25in; flex-wrap: wrap; border-top: 1px solid #bbbbbb; border-bottom: 1px solid #bbbbbb; padding: 7pt 0; margin: 10pt 0 8pt; font-size: 12pt; font-weight: 600; }
-    .dark .bottom-line { border-color: #555555; }
+    .bottom-line { display: flex; gap: 0.25in; flex-wrap: wrap; border: 1px solid #d8d8d8; border-radius: 12px; background: #f7f7f7; padding: 10pt 14pt; margin: 10pt 0 8pt; font-size: 12pt; font-weight: 600; }
+    .dark .bottom-line { border-color: #3a3a3a; background: #1f1f1f; }
     .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.12in; margin: 16pt 0 10pt; }
-    .step { border-top: 4px solid #111111; background: #f5f5f5; padding: 9pt; min-height: 1.5in; }
+    .step { border: 1px solid #d8d8d8; border-radius: 12px; background: #f7f7f7; padding: 9pt; min-height: 1.5in; }
     .step b { font-size: 8pt; color: #777777; }
     .step h2 { font-size: 12.5pt; margin: 4pt 0; }
     .step p { font-size: 9pt; color: #555555; line-height: 1.3; margin: 0; }
@@ -314,7 +314,7 @@ def build() -> str:
     .mini th { background: #e8e8e8; text-align: left; padding: 4pt; border-bottom: 1px solid #999999; }
     .mini td { padding: 4pt; border-bottom: 1px solid #dddddd; }
     .outcome { display: flex; gap: 0.25in; margin: 10pt 0 4pt; }
-    .outcome > div { border-left: 3px solid #f5f5f5; padding-left: 9pt; }
+    .outcome > div { border: 1px solid #3a3a3a; border-radius: 12px; background: #1f1f1f; padding: 10px 12px; }
     .outcome b { display: block; font-size: 22pt; }
     .outcome span { display: block; font-size: 9pt; color: #bbbbbb; }
     .sub { font-size: 13pt; margin-top: 0; }
@@ -326,7 +326,7 @@ def build() -> str:
     """
 
     return f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>Assignment 5 | Presentation</title><style>{css}</style></head><body>
+<html lang="en"><head><meta charset="utf-8"><title>Assignment 5 | Presentation</title><link rel="stylesheet" href="../assets/design.css"><style>{css}</style></head><body>
 {''.join(slides)}
 </body></html>"""
 

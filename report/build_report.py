@@ -931,7 +931,7 @@ def render_docx(blocks: Blocks, out_path: Path):
             if data["caption"]:
                 cap = doc.add_paragraph()
                 r = cap.add_run(sanitize(data["caption"]))
-                r.italic = True
+                r.italic = False
                 r.font.size = Pt(8)
                 r.font.color.rgb = RGBColor(0x55, 0x55, 0x55)
         elif kind == "figure":
@@ -940,7 +940,7 @@ def render_docx(blocks: Blocks, out_path: Path):
                 doc.add_picture(str(fig_path), width=Cm(16.5))
                 cap = doc.add_paragraph()
                 r = cap.add_run(sanitize(data["caption"]))
-                r.italic = True
+                r.italic = False
                 r.font.size = Pt(8)
                 r.font.color.rgb = RGBColor(0x55, 0x55, 0x55)
         elif kind == "pagebreak":
@@ -957,21 +957,22 @@ def render_html(blocks: Blocks, path: Path):
     css = """
     @page { size: A4; margin: 22mm 18mm 18mm; }
     * { box-sizing: border-box; }
-    body { font-family: "Segoe UI", Calibri, sans-serif; color: #111111; margin: 0; font-size: 10.5pt; line-height: 1.45; }
+    body { font-family: var(--font); color: #111111; margin: 0; font-size: 10pt; line-height: 1.45; }
     .page { padding: 0; }
     h1 { font-size: 17pt; margin: 18pt 0 6pt; border-bottom: 1px solid #bbbbbb; padding-bottom: 4pt; page-break-after: avoid; }
     h2 { font-size: 12.5pt; margin: 13pt 0 4pt; page-break-after: avoid; }
     p { margin: 0 0 7pt; text-align: justify; }
     ul { margin: 3pt 0 8pt 18pt; padding: 0; }
     li { margin-bottom: 4pt; }
-    table { width: 100%; border-collapse: collapse; margin: 7pt 0 10pt; font-size: 8.4pt; page-break-inside: auto; }
-    th { background: #e6e6e6; border: 1px solid #999999; padding: 4pt; text-align: left; font-weight: bold; }
-    td { border: 1px solid #bbbbbb; padding: 3.5pt; vertical-align: top; }
-    tr { page-break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; margin: 6pt 0 8pt; font-size: 8pt; page-break-inside: avoid; break-inside: avoid; }
+    th { background: #e6e6e6; border: 1px solid #999999; padding: 3.5pt; text-align: left; font-weight: bold; }
+    td { border: 1px solid #bbbbbb; padding: 3pt; vertical-align: top; }
+    tr { page-break-inside: avoid; break-inside: avoid; }
+    .table-block { page-break-inside: avoid; break-inside: avoid; }
     figure { margin: 10pt 0; page-break-inside: avoid; text-align: center; }
     figure img { width: 100%; max-width: 100%; }
-    figcaption { font-size: 8.5pt; color: #555555; font-style: italic; margin-top: 3pt; text-align: left; }
-    .caption { font-size: 8.5pt; color: #555555; font-style: italic; margin: 2pt 0 10pt; }
+    figcaption { font-size: 8pt; color: #555555; margin-top: 3pt; text-align: left; }
+    .caption { font-size: 8pt; color: #555555; margin: 2pt 0 8pt; }
     .cover { min-height: 165mm; padding: 18mm 4mm 0; page-break-after: always; }
     .cover h1 { font-size: 33pt; border: none; margin: 0 0 8pt; padding: 0; }
     .cover .sub { font-size: 18pt; color: #333333; margin-bottom: 26pt; }
@@ -985,7 +986,7 @@ def render_html(blocks: Blocks, path: Path):
     .pagebreak { page-break-before: always; }
     a { color: #222222; text-decoration: underline; }
     """
-    parts = ["<!DOCTYPE html><html><head><meta charset='utf-8'><title>Assignment 5</title><style>", css, "</style></head><body>"]
+    parts = ["<!DOCTYPE html><html><head><meta charset='utf-8'><title>Assignment 5</title><link rel='stylesheet' href='../assets/design.css'><style>", css, "</style></head><body>"]
     for kind, data in blocks.items:
         if kind == "cover":
             parts.append("<section class='cover'>")
@@ -1013,13 +1014,14 @@ def render_html(blocks: Blocks, path: Path):
                 parts.append(f"<li>{esc(item)}</li>")
             parts.append("</ul>")
         elif kind == "table":
-            parts.append("<table>")
+            parts.append("<div class='table-block'><table>")
             parts.append("<thead><tr>" + "".join(f"<th>{esc(h)}</th>" for h in data["headers"]) + "</tr></thead><tbody>")
             for row in data["rows"]:
                 parts.append("<tr>" + "".join(f"<td>{esc(v)}</td>" for v in row) + "</tr>")
             parts.append("</tbody></table>")
             if data["caption"]:
                 parts.append(f"<div class='caption'>{esc(data['caption'])}</div>")
+            parts.append("</div>")
         elif kind == "figure":
             src = f"../outputs/figures/{data['filename']}"
             parts.append(f"<figure><img src='{esc(src)}'><figcaption>{esc(data['caption'])}</figcaption></figure>")

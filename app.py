@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import json
 import sys
 from pathlib import Path
@@ -17,27 +18,52 @@ from transfer_lab.optimize import select  # noqa: E402
 
 st.set_page_config(page_title="Transfer Decision Lab", page_icon="", layout="wide")
 
-st.markdown(
-    """
+FONT_B64 = base64.b64encode((ROOT / "assets" / "fonts" / "Manrope-VariableFont_wght.ttf").read_bytes()).decode("ascii")
+
+APP_CSS = """
 <style>
-  .block-container {padding-top: 1.8rem; max-width: 1280px;}
-  html, body, [class*="css"] {font-family: "Segoe UI", system-ui, sans-serif;}
-  h1, h2, h3 {letter-spacing: -0.02em;}
-  h1 {font-size: 2.0rem;}
-  h2 {font-size: 1.25rem; margin-top: 0.4rem;}
-  h3 {font-size: 1.0rem;}
-  [data-testid="stMetricValue"] {font-size: 1.45rem;}
-  .callout {border-left: 3px solid #333333; background: #f6f6f6; padding: 0.7rem 0.9rem; margin: 0.4rem 0 0.9rem 0; font-size: 0.92rem;}
-  .small {color: #555555; font-size: 0.85rem;}
-  .rule {border-top: 1px solid #dddddd; margin: 0.7rem 0 0.9rem 0;}
-  .pill {display: inline-block; border: 1px solid #cccccc; border-radius: 2px; padding: 0.05rem 0.35rem; margin-right: 0.3rem; font-size: 0.78rem; color: #333333;}
+  @font-face {
+    font-family: "Manrope";
+    src: url(data:font/ttf;base64,__FONT__) format("truetype");
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --font: "Manrope", "Segoe UI", sans-serif;
+    --ink: #111111;
+    --ink-soft: #333333;
+    --muted: #5b5b5b;
+    --line: #d8d8d8;
+    --surface-2: #f7f7f7;
+    --radius: 12px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html, body, [class*="css"] {font-family: var(--font); font-size: 16px; color: var(--ink);}
+  .block-container {padding-top: 32px; padding-bottom: 48px; max-width: 1280px;}
+  h1, h2, h3 {letter-spacing: -0.01em; text-wrap: balance; font-weight: 700;}
+  h1 {font-size: 36px; line-height: 40px; margin: 0 0 12px;}
+  h2 {font-size: 24px; line-height: 32px; margin: 24px 0 8px;}
+  h3 {font-size: 18px; line-height: 28px; margin: 16px 0 4px;}
+  p {font-size: 16px; line-height: 24px; margin: 0 0 12px; text-wrap: pretty;}
+  a {color: var(--ink); text-decoration: underline; text-underline-offset: 3px;}
+  [data-testid="stMetricValue"] {font-size: 24px; line-height: 32px; font-weight: 700;}
+  [data-testid="stMetricLabel"] {font-size: 14px; line-height: 20px; color: var(--muted);}
+  [data-testid="stSidebar"] {background: var(--surface-2); border-right: 1px solid #e5e5e5;}
+  [data-testid="stSidebar"] p, [data-testid="stSidebar"] label {font-size: 14px; line-height: 20px;}
+  [data-testid="stVerticalBlockBorderWrapper"] {border: 1px solid var(--line) !important; border-radius: var(--radius) !important; background: #ffffff; padding: 16px !important;}
+  [data-testid="stCaptionContainer"] p {font-size: 14px; line-height: 20px; color: var(--muted);}
+  .callout {border: 1px solid var(--line); background: var(--surface-2); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0 24px; font-size: 16px; line-height: 24px;}
+  .small {color: var(--muted); font-size: 14px; line-height: 20px;}
+  .rule {border-top: 1px solid var(--line); margin: 16px 0 24px;}
+  .pill {display: inline-block; border: 1px solid var(--line); border-radius: 8px; padding: 2px 8px; margin-right: 6px; font-size: 14px; line-height: 20px; color: var(--ink-soft);}
+  .stButton > button {border-radius: 8px; font-family: var(--font); font-weight: 700;}
   [data-testid="stToolbar"] {visibility: hidden;}
   #MainMenu {visibility: hidden;}
   footer {visibility: hidden;}
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""".replace("__FONT__", FONT_B64)
+st.markdown(APP_CSS, unsafe_allow_html=True)
 
 PRESETS = {
     "Recommended": {"fit": 0.40, "value": 0.20, "safety": 0.40},
@@ -168,7 +194,7 @@ with tabs[1]:
 with tabs[2]:
     st.subheader("Two value models")
     st.markdown(
-        "The global model learns market pricing across 30,939 player-seasons in the top five leagues from 2010/11 to 2024/25. "
+        "The global model learns market pricing across 30,939 player seasons in the top five leagues from 2010/11 to 2024/25. "
         "The local model learns the 2015/16 Premier League cross-section from real match actions. Both predict value relative to the league median, so inflation is removed."
     )
     if (FIGURES / "value_parity.png").exists():
@@ -231,7 +257,7 @@ with tabs[3]:
         legend=dict(orientation="v", x=1.02, y=1.0),
         plot_bgcolor="white",
         paper_bgcolor="white",
-        font=dict(color="#222222"),
+        font=dict(family="Manrope, Segoe UI, sans-serif", color="#222222"),
     )
     fig.update_xaxes(range=[-3, 103], gridcolor="#eeeeee")
     fig.update_yaxes(range=[-3, 103], gridcolor="#eeeeee")
@@ -272,7 +298,7 @@ with tabs[3]:
             items.append((label, pct, row[col]))
         detail = pd.DataFrame(items, columns=["Metric", "Percentile", "Value"])
         bar = go.Figure(go.Bar(x=detail["Percentile"], y=detail["Metric"], orientation="h", marker_color="#333333", text=detail["Percentile"].round(0), textposition="outside"))
-        bar.update_layout(height=300, margin=dict(l=10, r=10, t=10, b=10), xaxis=dict(range=[0, 105], title="Percentile in the need pool"), yaxis=dict(autorange="reversed"), plot_bgcolor="white", paper_bgcolor="white", font=dict(color="#222222"))
+        bar.update_layout(height=300, margin=dict(l=10, r=10, t=10, b=10), xaxis=dict(range=[0, 105], title="Percentile in the need pool"), yaxis=dict(autorange="reversed"), plot_bgcolor="white", paper_bgcolor="white", font=dict(family="Manrope, Segoe UI, sans-serif", color="#222222"))
         st.plotly_chart(bar, use_container_width=True)
         st.caption(
             f"Local market gap {row['local_discount_pct']:+.0f}%, global gap {row['global_discount_pct']:+.0f}%. "
