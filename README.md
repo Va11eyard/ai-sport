@@ -65,8 +65,17 @@ Kanté was a 100th percentile ball winner and only a 54th percentile passer amon
 
 ## Run it
 
+App only:
+
 ```bash
 pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Full pipeline and report:
+
+```bash
+pip install -r requirements-dev.txt
 python scripts/download_data.py
 python scripts/build_all.py
 python scripts/verify.py
