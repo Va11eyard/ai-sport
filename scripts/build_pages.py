@@ -42,7 +42,13 @@ def rewrite(text: str) -> str:
 
 def main() -> None:
     if OUT.exists():
-        shutil.rmtree(OUT)
+        for child in OUT.iterdir():
+            if child.name == ".git":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
     (OUT / "assets" / "fonts").mkdir(parents=True)
     (OUT / "assets" / "img").mkdir(parents=True)
     (OUT / "report").mkdir(parents=True)

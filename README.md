@@ -22,7 +22,9 @@ Gueye is the closest real-match profile to Kanté. Cook is the strongest value s
 
 ![Decision screen](demo/screenshots/01_decision.png)
 
-[Open the project page](site/index.html)
+[Open the live project page](https://va11eyard.github.io/ai-sport/)
+
+Source: `site/index.html`
 
 ![Project page](demo/screenshots/landing_hero.png)
 
@@ -110,6 +112,7 @@ An LLM coding assistant was used for code scaffolding, event-schema checks, debu
 ## Links
 
 - Repository branch: `dev` of [github.com/Va11eyard/ai-sport](https://github.com/Va11eyard/ai-sport)
+- Live page: https://va11eyard.github.io/ai-sport/
 - Project page source: `site/index.html`
 - Speaker script: `presentation/SPEAKER_SCRIPT.md`
 - Report: `report/Assignment5_Report.pdf`
