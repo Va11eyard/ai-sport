@@ -47,5 +47,5 @@ budget_minus_40      True    27.0         3.0 238.981064        CB: Steve Cook (
    youth_policy      True    42.0         8.0 193.672562        CB: Chancel Mbemba Mangulu (10.0m); CM: Emre Can (18.0m); ST: Aleksandar Mitrović (14.0m)
     risk_averse      True    27.0        23.0 238.981064        CB: Steve Cook (3.0m); CM: Francis Joseph Coquelin (12.0m); ST: Odion Jude Ighalo (12.0m)
 
-report/Assignment5_Report.pdf: missing
-presentation/Assignment5_Presentation.pdf: missing
+report/Assignment5_Report.pdf: present
+presentation/Assignment5_Presentation.pdf: present
