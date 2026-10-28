@@ -58,6 +58,7 @@ Kanté was a 100th percentile ball winner and only a 54th percentile passer amon
 | `presentation/` | 11-slide PDF deck and speaker script |
 | `presentation/SPEAKER_SCRIPT.md` | Per-speaker script and Q&A bank |
 | `presentation/SHORT_SCRIPTS.md` | Short slide lines and 60 second app demo |
+| `presentation/SPEECH_RU.md` | Full Russian walkthrough for slides and app demo |
 | `presentation/APP_EXPLAINER.md` | Plain language walkthrough of the app |
 | `demo/` | Screenshots and demo script |
 | `site/` | Static project page built with the landing page design system |
@@ -127,6 +128,7 @@ An LLM coding assistant was used for code scaffolding, event-schema checks, debu
 - Project page source: `site/index.html`
 - Speaker script: `presentation/SPEAKER_SCRIPT.md`
 - Short scripts: `presentation/SHORT_SCRIPTS.md`
+- Russian walkthrough: `presentation/SPEECH_RU.md`
 - App explainer: `presentation/APP_EXPLAINER.md`
 - Report: `report/Assignment5_Report.pdf`
 - Slides: `presentation/Assignment5_Presentation.pdf`
